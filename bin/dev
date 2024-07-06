@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Ensure the script is executable
+chmod +x bin/dev
+
+# Start the Rails server
+bundle exec rails s -b 0.0.0.0
