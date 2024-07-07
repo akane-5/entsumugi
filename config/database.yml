@@ -20,9 +20,9 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: db #docker-compose.ymlでDBの設定をしたサービス名(db)のこと
+  host: db
   username: postgres
-  password: password #docker-compose.ymlで指定したパスワード
+  password: password
 
 development:
   <<: *default
@@ -84,4 +84,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  database: myapp_production
+  username: myapp
+  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
