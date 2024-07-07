@@ -23,5 +23,7 @@ module Myapp
       g.helper false #ヘルパーファイルを自動生成しないようにする
       g.test_framework nil #テストフレームワークを使わないようにする
     end
+
+    config.i18n.default_locale = :ja
   end
 end
