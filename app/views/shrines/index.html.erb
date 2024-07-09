@@ -1,0 +1,35 @@
+
+<div class="container mx-auto py-4">
+  <div class="flex">
+    <!-- Sidebar for search options -->
+    <div class="w-1/4 p-4 bg-green-200 rounded-lg">
+      <%= search_form_for @q, url: shrines_path, method: :get do |f| %>
+        <div class="mb-4">
+          <%= f.label :prefecture_id, '都道府県', class: 'block text-gray-700 font-bold mb-2' %>
+          <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, { include_blank: '選択する' }, class: 'block w-full bg-white border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2">カテゴリ</label>
+          <button class="block w-full bg-yellow-300 text-black font-bold py-2 px-3 rounded mb-2">金運</button>
+          <button class="block w-full bg-pink-300 text-black font-bold py-2 px-3 rounded mb-2">恋愛運</button>
+          <button class="block w-full bg-green-300 text-black font-bold py-2 px-3 rounded">健康運</button>
+        </div>
+        <div class="mb-4">
+          <%= f.label :name_cont, 'フリーワード', class: 'block text-gray-700 font-bold mb-2' %>
+          <%= f.text_field :name_cont, placeholder: '神社仏閣名など', class: 'block w-full bg-white border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+        </div>
+        <div class="actions">
+          <%= f.submit '検索', class: 'block w-full bg-green-500 text-white font-bold py-2 px-4 rounded cursor-pointer' %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Map container -->
+    <div class="w-3/4 p-4">
+      <div class="bg-blue-200 h-96 w-full rounded-lg flex items-center justify-center">
+        <p>Google Maps APIでマップを表示</p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'application' %>

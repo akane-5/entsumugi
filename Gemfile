@@ -52,6 +52,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
+gem 'ransack'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
