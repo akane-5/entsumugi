@@ -100,6 +100,10 @@ GEM
     devise-i18n (1.12.1)
       devise (>= 4.9.0)
     devise-i18n-views (0.3.7)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     erubi (1.13.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -250,6 +254,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  dotenv-rails
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
