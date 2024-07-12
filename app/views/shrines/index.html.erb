@@ -25,11 +25,9 @@
     </div>
 
     <!-- Map container -->
-    <div class="w-3/4 p-4">
-      <div class="bg-blue-200 h-96 w-full rounded-lg flex items-center justify-center">
-        <p>Google Maps APIでマップを表示</p>
-      </div>
+    <div id="map" style="height: 500px; width: 100%;">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_JAVASCRIPT_API_KEY'] %>&callback=initMap"></script>
     </div>
+    <%= javascript_include_tag 'application' %>
   </div>
 </div>
-<%= javascript_include_tag 'application' %>
