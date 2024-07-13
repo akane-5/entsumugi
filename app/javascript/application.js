@@ -2,3 +2,5 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "./maps"
+import { Turbo } from "@hotwired/turbo-rails"
+import { Application } from "@hotwired/stimulus"
