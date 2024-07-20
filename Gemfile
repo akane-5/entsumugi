@@ -56,7 +56,7 @@ gem 'ransack'
 
 gem 'dotenv-rails'
 
-gem 'google-places'
+gem 'google_places'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
