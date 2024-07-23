@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "static_pages#index"
 
-  resources :shrines, only: [:index] do
+  resources :shrines, only: [:index, :show] do
     collection do
       get 'search'
     end
