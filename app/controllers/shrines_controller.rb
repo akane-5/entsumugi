@@ -7,4 +7,8 @@ class ShrinesController < ApplicationController
     @q = Shrine.ransack(params[:q])
     @shrines = @q.result
   end
+
+  def show
+    @shrine = Shrine.find(params[:id])
+  end
 end
