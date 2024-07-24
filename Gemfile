@@ -58,6 +58,8 @@ gem 'dotenv-rails'
 
 gem 'google_places'
 
+gem 'kaminari'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
