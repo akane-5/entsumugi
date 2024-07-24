@@ -5,7 +5,7 @@ class ShrinesController < ApplicationController
 
   def index
     @q = Shrine.ransack(params[:q])
-    @shrines = @q.result
+    @shrines = @q.result.page(params[:page]).per(6)
   end
 
   def show
