@@ -1,6 +1,8 @@
 class ShrinesController < ApplicationController
   def search
     @q = Shrine.ransack(params[:q])
+    @shrines = @q.result(distinct: true)
+    @shrines_data = Shrine.all.to_json(only: [:id, :name, :latitude, :longitude, :address])
   end
 
   def index
