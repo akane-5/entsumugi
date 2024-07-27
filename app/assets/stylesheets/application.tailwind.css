@@ -2,3 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 @import "daisyui";
+
+/* カスタムスタイルの追加 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px); /* ヘッダーとフッターの高さを考慮 */
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.bg-custom {
+  background-color: #F0EBDB;
+}
+
+.text-custom {
+  color: #5F5434;
+}
+
+.bg-button {
+  background-color: #BCA446;
+}
+
+.bg-button-light {
+  background-color: #CFCAA5;
+}
+
+.header-footer-height {
+  height: 80px;
+}
+
+@font-face {
+  font-family: 'Karakaze';
+  src: url('/assets/fonts/karakaze-R.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'katsuo'; /* フォントの名前 */
+  src: url('./public/fonts/katsuo.ttf') format('truetype'); /* フォントファイルのパス */
+  font-weight: normal; /* 太さ */
+  font-style: normal; /* スタイル */
+}

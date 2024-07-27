@@ -8,11 +8,13 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Shippori+Mincho+B1&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   </head>
 
-  <body class="bg-green-100">
+  <body class="font-zenmaru bg-background">
     <%= render 'shared/header' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
   </body>
 </html>
