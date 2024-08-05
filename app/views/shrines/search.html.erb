@@ -24,8 +24,7 @@
     </div>
 
     <!-- Map container -->
-    <div id="map" data-shrines='<%= raw @shrines_data %>' style="height: 500px; width: 100%;"> </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_JAVASCRIPT_API_KEY'] %>&callback=initMap"></script>
-    <%= javascript_include_tag 'application' %>
-    </div>
+    <div id="map" style="height: 500px; width: 100%;"> </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_JAVASCRIPT_API_KEY'] %>&callback=initMap" async defer ></script>
+  </div>
 </div>

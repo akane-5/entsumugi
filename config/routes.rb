@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   resources :shrines, only: [:index, :show] do
     collection do
-      get 'search'
+      get 'search', to: 'shrines#search'
+      get 'search_json', to: 'shrines#search_json'
     end
   end
 end
