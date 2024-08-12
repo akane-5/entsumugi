@@ -4,7 +4,7 @@
     <% @shrines.each do |shrine| %>
       <div class="card bg-white max-w-sm shadow m-4">
         <figure>
-          <img src="<%= shrine.photo_reference %>" alt="<%= shrine.name %>の写真">
+          <img src="<%= shrine.formatted_photo_reference %>" alt="<%= shrine.name %>の写真" class="w-full h-auto max-h-60 object-cover">
         </figure>
         <div class="card-body">
           <div class="card-title"><%= shrine.name %></div>
