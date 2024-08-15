@@ -1,39 +1,33 @@
-require 'yaml'
 require 'google_places'
 
 class FetchShrinesDataPrefecture
   #GooglePlacesAPIのクライアント神社名のリストを初期化
-  def initialize(api_key, prefecture_code, prefecture_name)
+  def initialize(api_key, prefecture_name, center_latitude, center_longitude, radius)
     @client = GooglePlaces::Client.new(api_key)
-    @shrine_names = load_shrine_names(prefecture_code)
     @prefecture_id = Prefecture.find_by(name:prefecture_name).id
+    @prefecture_name = prefecture_name
+    @center_latitude = center_latitude
+    @center_longitude = center_longitude
+    @radius = radius
   end
 
   #神社データの取得とDBへの保存
   def fetch_and_save
-    @shrine_names.each do |shrine_name|
-      results = fetch_shrine_data(shrine_name, @prefecture_name)
+      results = fetch_shrine_data
       save_to_db(results)
-    end
   end
 
   private
 
-  #YAMLファイルから神社名を読み込み
-  def load_shrine_names(prefecture_code)
-    YAML.load_file("config/shrines/#{prefecture_code}.yml")['shrines']
-  end
-
   #GooglePlacesAPIを使ってデータを取得
-  def fetch_shrine_data(shrine_name, prefecture_name)
-    query = "神社 御朱印 #{shrine_name} #{prefecture_name}"
-    @client.spots_by_query(query, language: 'ja')
+  def fetch_shrine_data
+    @client.spots_by_query("神社 #{@prefecture_name}", types: ['shrine'], location: "#{@center_latitude},#{@center_longitude}", radius: @radius, rankby: 'prominence', max: 30, language: 'ja')
   end
 
   #取得したデータをDBに保存
   def save_to_db(results)
     results.each do |result|
-      next unless result.formatted_address.include?("岐阜県") #岐阜県の神社だけを保存する
+      next unless result.formatted_address.include?(@prefecture_name) #指定した都道府県の神社だけを保存する
       begin
         Shrine.create!(
           name: result.name,
