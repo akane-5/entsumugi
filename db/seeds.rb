@@ -52,5 +52,5 @@ Prefecture.create([
   { name: '大分県' },
   { name: '宮崎県' },
   { name: '鹿児島県' },
-  { name: '沖縄県' },
+  { name: '沖縄県' }
 ])

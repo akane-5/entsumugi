@@ -1,12 +1,12 @@
 class ShrinesController < ApplicationController
   def search
-    #フォームからの検索
+    # フォームからの検索
     @q = Shrine.ransack(params[:q])
     @shrines = @q.result(distinct: true)
   end
 
   def search_json
-    #マップからの検索
+    # マップからの検索
     @shrines_data = Shrine.select(:id, :name, :latitude, :longitude, :address) # 必要なカラムだけを取得
     render json: @shrines_data
   end

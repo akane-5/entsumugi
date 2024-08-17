@@ -1,0 +1,16 @@
+exclude:
+  - '**/vendor/**/*'
+  - '**/node_modules/**/*'
+
+EnableDefaultLinters: true
+linters:
+  # 自動生成したERBファイルの閉じタグを検証から除外する
+  SelfClosingTag:
+    enabled: false
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+      Style/FrozenStringLiteralComment:
+        enabled: false

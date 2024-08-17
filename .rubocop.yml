@@ -1,0 +1,25 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 3.2.3
+  NewCops: enable
+
+# 日本語でのコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# クラスやモジュール定義前に、それらの説明書きがあるかをチェック（無効）
+Style/Documentation:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+# フローズン・ストリング・リテラル・コメント(文字列が変更されることを防ぐために設定するコメント)のチェックを無効
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+require:
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-performance

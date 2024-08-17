@@ -9,8 +9,8 @@ class Shrine < ApplicationRecord
   validates :photo_reference, presence: true, allow_blank: true
   validates :website, presence: true, allow_blank: true
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["prefecture_id","name",]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[prefecture_id name]
   end
 
   # photo_referenceからURLを取得するメソッド

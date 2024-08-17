@@ -1,0 +1,19 @@
+Layout/LineLength:
+  Exclude:
+    - 'app/services/fetch_shrines_data_prefecture.rb'
+    - 'lib/tasks/**/*'
+    - 'config/initializers/devise.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/tasks/**/*'
+
+Rails/HasManyOrHasOneDependent:
+  Exclude:
+    - 'app/models/prefecture.rb'
+
+# メソッド名の長さの制約
+Metrics/MethodLength:
+  Exclude:
+    - 'app/services/fetch_shrines_data_prefecture.rb'
+    - 'db/migrate/20240708025721_devise_create_users.rb'
