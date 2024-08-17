@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root "static_pages#index"
+  root 'static_pages#index'
 
-  resources :shrines, only: [:index, :show] do
+  resources :shrines, only: %w[index show] do
     collection do
       get 'search', to: 'shrines#search'
       get 'search_json', to: 'shrines#search_json'
