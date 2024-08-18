@@ -7,13 +7,23 @@ class ShrinesController < ApplicationController
 
   def search_json
     # マップからの検索
-    @shrines_data = Shrine.select(:id, :name, :latitude, :longitude, :address) # 必要なカラムだけを取得
+    @shrines_data = Shrine.all.map do |shrine|
+      {
+        id: shrine.id,
+        name: shrine.name,
+        latitude: shrine.latitude,
+        longitude: shrine.longitude,
+        address: shrine.address,
+        photo_url: shrine.formatted_photo_reference
+      }
+    end
     render json: @shrines_data
   end
 
   def index
     @q = Shrine.ransack(params[:q])
     @shrines = @q.result.page(params[:page]).per(9)
+    @no_results = @shrines.empty? # 結果がない場合
   end
 
   def show
