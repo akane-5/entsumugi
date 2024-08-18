@@ -23,7 +23,7 @@ class ShrinesController < ApplicationController
   def index
     @q = Shrine.ransack(params[:q])
     @shrines = @q.result.page(params[:page]).per(9)
-    @no_results = @shrines.empty? # 結果がない場合
+    @no_results = @shrines.empty? # 結果がない場合の表示
   end
 
   def show
