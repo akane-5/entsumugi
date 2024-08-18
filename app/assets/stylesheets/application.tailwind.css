@@ -45,17 +45,3 @@ img {
 .header-footer-height {
   height: 80px;
 }
-
-@font-face {
-  font-family: 'Karakaze';
-  src: url('/assets/fonts/karakaze-R.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'katsuo'; /* フォントの名前 */
-  src: url('./public/fonts/katsuo.ttf') format('truetype'); /* フォントファイルのパス */
-  font-weight: normal; /* 太さ */
-  font-style: normal; /* スタイル */
-}
