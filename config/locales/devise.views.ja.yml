@@ -3,9 +3,10 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
+        name: "ユーザー名"
         email: "メールアドレス"
         password: "パスワード"
-        password_confirmation: "確認用パスワード"
+        password_confirmation: "パスワード確認"
         remember_me: "ログインを記憶"
     models:
       user: "ユーザ"
@@ -49,7 +50,8 @@ ja:
         update: "更新"
         we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
       new:
-        sign_up: "アカウント登録"
+        title: "ユーザー登録"
+        sign_up: "登録"
     sessions:
       new:
         sign_in: "ログイン"

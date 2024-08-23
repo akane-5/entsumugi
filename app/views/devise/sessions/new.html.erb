@@ -1,3 +1,48 @@
+<div class="flex items-center justify-center h-screen bg-background">
+  <div class="flex flex-col w-2/5 p-4 rounded-lg border-2 border-navy bg-white">
+    <h2 class="text-lg font-bold my-6 text-center"><%= t('.sign_in') %></h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div  class="form-control px-10 flex flex-col items-center w-full">
+        <%= f.label :email, class: "label pb-0 self-start w-full" %>
+        <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered w-full h-9" %>
+      </div>
+
+      <div  class="form-control px-10 flex flex-col items-center w-full">
+        <%= f.label :password, class: "label pb-0 self-start w-full" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "input input-bordered w-full h-9"  %>
+      </div>
+
+      <div  class="form-control my-4 px-10 flex flex-col items-center w-full">
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="form-control my-4 flex flex-col items-center">
+        <%= f.submit t('.sign_in'), class: "btn bg-navy text-white w-24 "%>
+      </div>
+    <% end %>
+
+    <p class="text-center">ー または ー</p>
+
+    <div class="form-control my-4 flex flex-col items-center">
+      <%= link_to "Googleアカウントでログイン", '#', class: "btn btn-outline w-64" %>
+    </div>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
+
+
+<%
+=begin %>
 <h2><%= t('.sign_in') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,3 +69,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<%
+=end %>

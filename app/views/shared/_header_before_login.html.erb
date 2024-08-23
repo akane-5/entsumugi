@@ -1,11 +1,12 @@
-<header class="bg-[#CFCAA5]">
-  <div class="navbar">
-    <div class="flex-1">
-      <%= link_to "えんつむぎ", "/", class: "text-xl text-text" %>
+<header class='bg-[#CFCAA5]'>
+  <div class='navbar'>
+    <div class='flex-1'>
+      <%= link_to 'えんつむぎ', '/', class: 'text-xl text-text' %>
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal flex items-center">
-        <li><%= link_to 'ログイン', '#' %></li>
+        <li><%= link_to 'ユーザー登録', new_user_registration_path %></li>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
         <li>
           <details class="relative">
             <summary class="mr-2">
