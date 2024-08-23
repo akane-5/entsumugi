@@ -14,7 +14,12 @@
   </head>
 
   <body class="font-zenmaru bg-background">
-    <%= render 'shared/header' %>
+    <% if user_signed_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/header_before_login' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
