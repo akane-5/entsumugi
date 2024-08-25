@@ -32,42 +32,11 @@
     <p class="text-center">ー または ー</p>
 
     <div class="form-control my-4 flex flex-col items-center">
-      <%= link_to "Googleアカウントでログイン", '#', class: "btn btn-outline w-64" %>
+      <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false } do %>
+        <%= image_tag('google_icon_light_sq_SI@2x.png', class: 'w-full h-9') %>
+      <% end %>
     </div>
 
-    <%= render "devise/shared/links" %>
+    <%#= render "devise/shared/links" %>
   </div>
 </div>
-
-
-
-<%
-=begin %>
-<h2><%= t('.sign_in') %></h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t('.sign_in') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-<%
-=end %>

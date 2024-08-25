@@ -52,6 +52,10 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
 gem 'ransack'
 
 gem 'dotenv-rails'
