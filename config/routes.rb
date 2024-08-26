@@ -15,4 +15,6 @@ Rails.application.routes.draw do
       get 'search_json', to: 'shrines#search_json'
     end
   end
+
+  get "users/profile" => "users#show"
 end
