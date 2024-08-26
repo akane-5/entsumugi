@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "users/profile" => "users#show"
+  resource :users, only: [:show] do
+    get 'profile', on: :collection
+  end
 end
