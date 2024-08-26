@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :uid, presence: true, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
   # omniauth_callbacks_controllerで使用
