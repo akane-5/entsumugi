@@ -21,10 +21,10 @@ ja:
         instruction: "次のリンクでメールアドレスの確認が完了します:"
       reset_password_instructions:
         action: "パスワード変更"
-        greeting: "こんにちは、%{recipient}さん!"
-        instruction: "誰かがパスワードの再設定を希望しました。次のリンクでパスワードの再設定が出来ます。"
-        instruction_2: "あなたが希望したのではないのなら、このメールは無視してください。"
-        instruction_3: "上のリンクにアクセスして新しいパスワードを設定するまで、パスワードは変更されません。"
+        greeting: "%{recipient}様"
+        instruction: "パスワードの再設定を行うには以下のURLよりお手続きください。"
+        instruction_2: "お心当たりがない場合はこのメールは無視してください。"
+        instruction_3: "上記URLから新しいパスワードを設定するまでは、パスワードは変更されません。"
       unlock_instructions:
         action: "アカウントのロック解除"
         greeting: "こんにちは、%{recipient}さん!"
@@ -34,11 +34,12 @@ ja:
       edit:
         change_my_password: "パスワードを変更する"
         change_your_password: "パスワードを変更"
-        confirm_new_password: "確認用新しいパスワード"
+        confirm_new_password: "新しいパスワード(確認用)"
         new_password: "新しいパスワード"
       new:
-        forgot_your_password: "パスワードを忘れましたか?"
-        send_me_reset_password_instructions: "パスワードの再設定方法を送信する"
+        registration_email: "ご登録のメールアドレス"
+        reset_password: "パスワードの再設定"
+        send_me_reset_password_mail: "パスワード再設定メールを送信する"
     registrations:
       edit:
         are_you_sure: "本当に良いですか?"
