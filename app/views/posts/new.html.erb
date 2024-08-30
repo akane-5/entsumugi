@@ -1,0 +1,50 @@
+<div class="flex justify-center">
+  <div class="flex flex-col items-center bg-base-100 mt-8 p-8 rounded-lg shadow-lg w-2/5">
+    <div class="mb-6 text-lg font-bold">
+        <h2>新規投稿</h2>
+    </div>
+
+    <div class="w-full max-w-lg ">
+      <%= form_with model: @post, local: true do |f| %>
+
+        <div class="form-control mb-2">
+          <div class="flex justify-between items-center">
+            <%= f.label :shrine_name, '神社名' %>
+            <%= link_to '候補の中にない場合はこちら', '#', class: 'text-sky-600 text-sm hover:text-sky-400' %>
+          </div>
+          <%= f.text_field :shrine_name, class: "w-full px-2 py-1 h-9 border rounded text-sm", placeholder: '入力すると候補が表示されます' %>
+        </div>
+
+
+        <div class="form-control mb-6">
+          <%= f.label :address, '住所' %>
+          <%= f.text_field :address, class: "w-full px-2 py-1 h-9 border rounded text-sm", placeholder: '神社名を入力すると自動で反映されます' %>
+        </div>
+
+        <div class="form-control mb-6">
+          <%= f.label :category, 'カテゴリ' %>
+          <div class="flex space-x-2 mt-1">
+            <% ['金運', '恋愛運', '健康運', '総合運'].each do |category| %>
+              <%= f.radio_button :category, category, id: category %>
+              <label for="<%= category %>" class="btn btn-outline btn-sm"><%= category %></label>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-control mb-4">
+          <%= f.label :image, "御朱印の写真" %>
+          <%= f.file_field :image, class: "file-input file-input-bordered file:border-0 file:bg-waterblue file:text-slate-800 text-sm text-gray-400 w-full h-9" %>
+        </div>
+
+        <div class="form-control mb-4">
+          <%= f.label :comment, 'コメント' %>
+          <%= f.text_area :comment, class: "textarea textarea-bordered w-full mt-1", rows: 2 %>
+        </div>
+
+        <div class="form-control flex items-center mt-7">
+          <%= f.submit '投稿する', class: 'bg-navy text-white py-2 px-4 rounded w-32 text-center' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

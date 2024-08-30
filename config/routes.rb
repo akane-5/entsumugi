@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resource :users, only: [:show] do
     get 'profile', on: :collection
   end
+
+  resources :posts
 end

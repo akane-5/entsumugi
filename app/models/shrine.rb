@@ -1,5 +1,8 @@
 class Shrine < ApplicationRecord
   belongs_to :prefecture
+  has_many :posts
+  has_many :shrine_categories
+  has_many :categories, through: :shrine_categories
 
   validates :name, presence: true
   validates :address, presence: true
