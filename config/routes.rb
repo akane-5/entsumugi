@@ -14,10 +14,13 @@ Rails.application.routes.draw do
     collection do
       get 'search', to: 'shrines#search'
       get 'search_json', to: 'shrines#search_json'
+      get 'shrine_search', to: 'shrines#shrine_search'
     end
   end
 
   resource :users, only: [:show] do
     get 'profile', on: :collection
   end
+
+  resources :posts
 end
