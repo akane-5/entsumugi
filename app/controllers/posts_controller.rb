@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
       redirect_to users_path, notice: '投稿が成功しました！'
     else
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :shrine_id, :body, :image)
+    # user_id は許可しない（current_user で設定）
+    params.require(:post).permit(:shrine_id, :body, :image)
   end
 end

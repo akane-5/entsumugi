@@ -29,4 +29,15 @@ class ShrinesController < ApplicationController
   def show
     @shrine = Shrine.find(params[:id])
   end
+
+  # 新規投稿時に入力された神社名から神社データを探す
+  def shrine_search
+    shrine = Shrine.find_by(name: params[:name])
+    if shrine
+      categories = shrine.categories.pluck(:name) # カテゴリ名を配列で取得
+      render json: { id: shrine.id, address: shrine.address, categories: categories }
+    else
+      render json: {}
+    end
+  end
 end
