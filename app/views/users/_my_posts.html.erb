@@ -1,0 +1,30 @@
+<div class="container mx-auto py-4">
+  <div class="flex flex-wrap justify-center">
+    <% if @no_results %>
+      <div class="text-red-500 text-lg">投稿がありません</div>
+    <% else %>
+      <% @posts.each do |post| %>
+        <div class="card w-72 bg-white shadow m-4">
+          <figure>
+          <%= image_tag post.image, alt: "御朱印の写真", class: "w-full h-auto max-h-60 object-cover" %>
+          </figure>
+          <div class="card-body p-6">
+            <div class="card-title"><%= post.shrine.name %></div>
+            <div><%= post.shrine.address %></div>
+            <div class="card-actions justify-start">
+              <div class="badge badge-outline bg-yellow">金運</div>
+              <div class="badge badge-outline bg-pink">恋愛運</div>
+              <div class="badge badge-outline bg-waterblue">健康運</div>
+            </div>
+            <div class="px-6 pt-4 pb-2 flex justify-center">
+              <%= link_to '神社詳細ページへ', '#', class: 'bg-button text-white text-sm py-2 px-4 rounded' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="mt-8 text-center text-xl">
+    <%#= paginate @posts %>
+  </div>
+</div>
