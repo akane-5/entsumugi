@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_30_044934) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_31_175130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_30_044934) do
 
   create_table "posts", force: :cascade do |t|
     t.text "body"
-    t.string "image"
     t.bigint "user_id", null: false
     t.bigint "shrine_id", null: false
     t.datetime "created_at", null: false
@@ -98,8 +97,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_30_044934) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
+    t.string "provider", default: "devise"
+    t.string "uid", default: "devise_user"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
