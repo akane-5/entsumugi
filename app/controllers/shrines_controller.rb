@@ -28,6 +28,8 @@ class ShrinesController < ApplicationController
 
   def show
     @shrine = Shrine.find(params[:id])
+    @posts = @shrine.posts # 神社に関連する投稿を取得
+    @no_results = @posts.empty? # 投稿がないかどうかを判定
   end
 
   # 新規投稿時に入力された神社名から神社データを探す
