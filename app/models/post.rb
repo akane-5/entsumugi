@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   belongs_to :shrine
 
   has_one_attached :image
