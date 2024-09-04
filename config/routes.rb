@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root 'static_pages#index'
+  get '/privacy_policy', to: 'static_pages#privacy_policy'
 
   resources :shrines, only: %w[index show] do
     collection do
