@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'static_pages#index'
   get '/privacy_policy', to: 'static_pages#privacy_policy'
+  get '/terms_of_service', to: 'static_pages#terms_of_service'
 
   resources :shrines, only: %w[index show] do
     collection do
