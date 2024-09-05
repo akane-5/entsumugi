@@ -45,3 +45,11 @@ img {
 .header-footer-height {
   height: 80px;
 }
+
+.breadcrumb {
+  @apply p-4 text-zinc-700;
+}
+
+.breadcrumb a {
+  @apply hover:text-zinc-400;
+}
