@@ -62,16 +62,16 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "myapp_production"
 
-  config.action_mailer.raise_delivery_errors = true   # メール送信失敗時のエラーを発生させる
-  config.action_mailer.delivery_method = :smtp  # メール送信にSMTPを使用する
+  config.action_mailer.raise_delivery_errors = true # メール送信失敗時のエラーを発生させる
+  config.action_mailer.delivery_method = :smtp # メール送信にSMTPを使用する
   # SMPTの詳細設定
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    user_name: ENV['GMAIL_USERNAME'] ,
-    password: ENV['GMAIL_PASSWORD'] ,
-    authentication: 'plain',  # メールサーバーの認証の種類
-    enable_starttls_auto: true  # STARTTLSを自動検出して有効化
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: 'plain', # メールサーバーの認証の種類
+    enable_starttls_auto: true # STARTTLSを自動検出して有効化
   }
   # 本番環境でのホストとプロトコル設定
   config.action_mailer.default_url_options = { host: 'entsumugi-16d01808acf3.herokuapp.com', protocol: 'https' }

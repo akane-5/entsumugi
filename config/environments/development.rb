@@ -38,16 +38,16 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   # mail setting
-  config.action_mailer.raise_delivery_errors = true   # メール送信失敗時のエラーを発生させる
-  config.action_mailer.delivery_method = :smtp  # メール送信にSMTPを使用する
+  config.action_mailer.raise_delivery_errors = true # メール送信失敗時のエラーを発生させる
+  config.action_mailer.delivery_method = :smtp # メール送信にSMTPを使用する
   # SMPTの詳細設定
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    user_name: ENV['GMAIL_USERNAME'] ,
-    password: ENV['GMAIL_PASSWORD'] ,
-    authentication: 'plain',  # メールサーバーの認証の種類
-    enable_starttls_auto: true  # STARTTLSを自動検出して有効化
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: 'plain', # メールサーバーの認証の種類
+    enable_starttls_auto: true # STARTTLSを自動検出して有効化
   }
   # 開発環境でのホストとポート設定
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }

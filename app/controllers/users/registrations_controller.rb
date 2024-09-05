@@ -29,7 +29,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def update
   #   super
   # end
+
   protected
+
   # パスワード以外はパスワードを入力しなくても更新できるようにする
   def update_resource(resource, params)
     resource.update_without_password(params)
