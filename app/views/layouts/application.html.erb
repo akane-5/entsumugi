@@ -20,7 +20,7 @@
     <% else %>
       <%= render 'shared/header_before_login' %>
     <% end %>
-
+    <%= breadcrumbs separator: ' &rsaquo; ', class: 'breadcrumb' %>
     <%= yield %>
   </body>
 </html>
