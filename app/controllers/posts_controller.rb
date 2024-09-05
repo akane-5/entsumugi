@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    @shrines = Shrine.all  # 神社データを取得する
-    @categories = Category.all  # カテゴリデータを取得する
+    @shrines = Shrine.all # 神社データを取得する
+    @categories = Category.all # カテゴリデータを取得する
   end
 
   def create
