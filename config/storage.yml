@@ -18,7 +18,7 @@ local:
 google:
   service: GCS
   project: entsumugi
-  credentials: <%= Rails.root.join("config/entsumugi-ad2a8ad02b60.json") %>
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
   bucket: entsumugi
 
 # Use bin/rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
