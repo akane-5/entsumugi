@@ -46,7 +46,9 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
+  config.hosts << 'en-tsumugi.com'
+  config.hosts << 'www.en-tsumugi.com'
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
@@ -74,9 +76,9 @@ Rails.application.configure do
     enable_starttls_auto: true # STARTTLSを自動検出して有効化
   }
   # 本番環境でのホストとプロトコル設定
-  config.action_mailer.default_url_options = { host: 'entsumugi-16d01808acf3.herokuapp.com', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'en-tsumugi.com', protocol: 'https' }
   # メールリンクの生成に必須のオプション(画像やCSSなどメール内で使用する資産がホストされる場所)
-  config.action_mailer.asset_host = 'https://entsumugi-16d01808acf3.herokuapp.com'
+  config.action_mailer.asset_host = 'https://en-tsumugi.com'
   # メールに関連するキャッシュを無効にする
   config.action_mailer.perform_caching = false
 
