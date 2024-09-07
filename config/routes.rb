@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   get '/privacy_policy', to: 'static_pages#privacy_policy'
   get '/terms_of_service', to: 'static_pages#terms_of_service'
 
-  resources :shrines, only: %w[index show] do
+  resources :shrines, only: %i[index show] do
     collection do
       get 'search', to: 'shrines#search'
       get 'search_json', to: 'shrines#search_json'
       get 'shrine_search', to: 'shrines#shrine_search'
     end
+    resource :bookmark, only: %i[create destroy]
   end
 
   resource :users, only: [:show] do

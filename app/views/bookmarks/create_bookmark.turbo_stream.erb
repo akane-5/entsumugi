@@ -1,0 +1,6 @@
+<%= turbo_stream.replace dom_id(@shrine, :bookmark) do %>
+  <%# ブックマークが作成された状態のリンク %>
+  <%= link_to shrine_bookmark_path(@shrine), method: :delete, data: { turbo_method: :delete }, class: "" do %>
+    <i class="fa-solid fa-bookmark"></i>
+  <% end %>
+<% end %>

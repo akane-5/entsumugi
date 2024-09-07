@@ -11,7 +11,26 @@
         <% end %>
       </div>
       <div class="w-3/5 ml-10">
-        <h2 class="text-2xl font-bold mt-2"><%= @shrine.name %></h2>
+        <div class="text-2xl font-bold mt-2 flex items-center">
+          <h2><%= @shrine.name %></h2>
+
+          <% if user_signed_in? %>
+            <div class="ml-4 w-10">
+              <%= turbo_frame_tag dom_id(@shrine, :bookmark), class: "ml-4" do %>
+                <% if current_user.bookmarked_shrines.exists?(@shrine.id) %>
+                  <%= link_to shrine_bookmark_path(@shrine), method: :delete, data: { turbo_method: :delete }, class: "text-red-500" do %>
+                    <i class="fa-solid fa-bookmark"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to shrine_bookmark_path(@shrine), method: :post, data: { turbo_method: :post }, class: "text-gray-500" do %>
+                    <i class="fa-regular fa-bookmark"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
         <p class="text-gray-700 mt-6"><%= @shrine.address %></p>
         <p class="text-gray-700 mt-2">
           公式サイト: 
