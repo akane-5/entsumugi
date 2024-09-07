@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
   has_many :posts, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_shrines, through: :bookmarks, source: :shrine
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
