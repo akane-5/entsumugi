@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @user = current_user
     render partial: 'profile'
   end
 
@@ -13,5 +14,12 @@ class UsersController < ApplicationController
     @posts = @user.posts # ユーザーの投稿を取得
     @no_results = @posts.empty? # 投稿がないかどうかを判断
     render partial: 'my_posts'
+  end
+
+  def bookmarks
+    @user = current_user
+    @bookmarks = @user.bookmarks.includes(:shrine)
+    @no_results = @bookmarks.empty?
+    render partial: 'bookmarks'
   end
 end
