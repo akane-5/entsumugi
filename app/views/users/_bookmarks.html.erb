@@ -1,0 +1,50 @@
+<turbo-frame id="content">
+  <div class="container mx-auto mt-12">
+    <% if @no_results %>
+      <div class="text-red-500 text-lg text-center mt-24">ブックマークしている神社はありません</div>
+    <% else %>
+      <div class="flex flex-wrap justify-center">
+        <% @bookmarks.each do |bookmark| %>
+          <div class="card bg-white w-80 shadow m-4">
+            <figure class="pt-6 px-6">
+              <% if bookmark.shrine.photo_reference.present? %>
+                <img src="<%= bookmark.shrine.formatted_photo_reference %>" alt="<%= bookmark.shrine.name %>" class="w-72 h-52 object-cover rounded-lg">
+              <% else %>
+                <div class="bg-gray-300 text-white p-4 rounded-lg">PHOTO</div>
+              <% end %>
+            </figure>
+
+            <div class="card-body">
+              <div class="card-title text-2xl font-bold flex items-center justify-between">
+                <h2><%= bookmark.shrine.name %></h2>
+                <div class="w-10">
+                  <%= turbo_frame_tag dom_id(bookmark.shrine, :bookmark), class: "ml-4" do %>
+                    <% if current_user.bookmarked_shrines.exists?(bookmark.shrine.id) %>
+                      <%= link_to shrine_bookmark_path(bookmark.shrine), method: :delete, data: { turbo_method: :delete }, class: "text-red-500" do %>
+                        <i class="fa-solid fa-bookmark"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to shrine_bookmark_path(bookmark.shrine), method: :post, data: { turbo_method: :post }, class: "text-gray-500" do %>
+                        <i class="fa-regular fa-bookmark"></i>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+
+              <p class="text-gray-700 mt-4"><%= bookmark.shrine.address %></p>
+              <div class="card-actions justify-start">
+                <span class="bg-yellow text-black py-1 px-2 rounded-2xl mr-2 text-xs">金運</span>
+                <span class="bg-pink text-black py-1 px-2 rounded-2xl mr-2 text-xs">恋愛運</span>
+                <span class="bg-waterblue text-black py-1 px-2 rounded-2xl text-xs">健康運</span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="mt-8 text-center text-xl">
+      <%#= paginate @posts %>
+    </div>
+  </div>
+</turbo-frame>
