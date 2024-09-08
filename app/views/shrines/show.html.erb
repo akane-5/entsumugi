@@ -11,11 +11,11 @@
         <% end %>
       </div>
       <div class="w-3/5 ml-10">
-        <div class="text-2xl font-bold mt-2 flex items-center">
+        <div class="text-2xl font-bold mt-2 flex items-center justify-between">
           <h2><%= @shrine.name %></h2>
 
           <% if user_signed_in? %>
-            <div class="ml-4 w-10">
+            <div class="mr-10 w-10">
               <%= turbo_frame_tag dom_id(@shrine, :bookmark), class: "ml-4" do %>
                 <% if current_user.bookmarked_shrines.exists?(@shrine.id) %>
                   <%= link_to shrine_bookmark_path(@shrine), method: :delete, data: { turbo_method: :delete }, class: "text-red-500" do %>
