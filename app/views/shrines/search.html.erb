@@ -3,7 +3,7 @@
 <div class="container mx-auto py-12">
   <div class="flex space-x-5">
     <!-- Sidebar for search options -->
-    <div class="w-1/4 p-4 rounded-lg border-2 border-navy bg-white">
+    <div class="w-1/4 p-4 rounded-lg border-2 border-navy bg-my_white">
       <%= search_form_for @q, url: shrines_path, method: :get, data: { turbo: false } do |f| %>
         <div class="mb-4 pt-2">
           <%= f.label :prefecture_id, '都道府県', class: 'block text-gray-700 font-bold mb-2 text-center' %>
@@ -13,14 +13,14 @@
           <label class="block text-gray-700 font-bold mb-2 text-center">カテゴリ</label>
           <button class="block w-full bg-yellow text-black font-bold py-2 px-3 rounded-full mb-2">金運</button>
           <button class="block w-full bg-pink text-black font-bold py-2 px-3 rounded-full mb-2">恋愛運</button>
-          <button class="block w-full bg-waterblue text-black font-bold py-2 px-3 rounded-full mb-2">健康運</button>
+          <button class="block w-full bg-blue text-black font-bold py-2 px-3 rounded-full mb-2">健康運</button>
         </div>
         <div class="mb-4 pt-3">
           <%= f.label :name_cont, 'フリーワード', class: 'block text-gray-700 font-bold mb-2 text-center' %>
           <%= f.text_field :name_cont, placeholder: '神社名など', class: 'block w-full bg-white border border-gray-300 rounded py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
         </div>
         <div class="actions pt-6">
-          <%= f.submit '検索', class: 'block w-full bg-navy text-white font-bold py-2 px-4 rounded cursor-pointer' %>
+          <%= f.submit '検索', class: 'block w-full bg-btn text-white font-bold py-2 px-4 rounded cursor-pointer' %>
         </div>
       <% end %>
     </div>

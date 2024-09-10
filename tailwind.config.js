@@ -8,25 +8,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'green-100': '#c1d8ac',
-        'green-700': '#769164',
-        'green-50': '#93ca76',
-        background: '#FCFAF7',
-        button: '#BCA446',
-        buttonAlt: '#CFCAA5',
+        background: '#F6F5EA',
+        header_footer: '#CFCAA5',
+        btn: '#626C88',
         text: '#5F5434',
-        waterblue: '#BED2D5',
+        pink: '#F3D3B8',
+        blue: '#A5C3CF',
+        yellow: '#F4CC70',
+        green: '#A99F3C',
+        green2: '#C3BC75',
         navy: '#525E83',
         red: '#CF5326',
-        pink: '#F9DED1',
-        yellow: '#DEB143'
+        my_white: '#FCFAF7'
       },
       fontFamily: {
-        shippori: ['Shippori Mincho B1', 'serif;'],
-        noto: ['Noto Serif JP', 'serif'],
-        zenmaru: ['Zen Maru Gothic', 'serif'],
-        Karakaze: ['Karakaze', 'sans-serif'],
-        katsuo: ['katsuo', 'sans-serif']
+        zenmaru: ['Zen Maru Gothic', 'serif']
       },
     },
   },

@@ -5,7 +5,7 @@
     <% else %>
       <div class="flex flex-wrap justify-center">
         <% @bookmarks.each do |bookmark| %>
-          <div class="card bg-white w-80 shadow m-4">
+          <div class="card bg-my_white w-80 shadow m-4">
             <figure class="pt-6 px-6">
               <% if bookmark.shrine.photo_reference.present? %>
                 <img src="<%= bookmark.shrine.formatted_photo_reference %>" alt="<%= bookmark.shrine.name %>" class="w-72 h-52 object-cover rounded-lg">
@@ -36,7 +36,7 @@
               <div class="card-actions justify-start">
                 <span class="bg-yellow text-black py-1 px-2 rounded-2xl mr-2 text-xs">金運</span>
                 <span class="bg-pink text-black py-1 px-2 rounded-2xl mr-2 text-xs">恋愛運</span>
-                <span class="bg-waterblue text-black py-1 px-2 rounded-2xl text-xs">健康運</span>
+                <span class="bg-blue text-black py-1 px-2 rounded-2xl text-xs">健康運</span>
               </div>
             </div>
           </div>
