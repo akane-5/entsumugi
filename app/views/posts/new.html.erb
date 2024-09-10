@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <div class="flex flex-col items-center bg-base-100 mt-8 p-8 rounded-lg shadow-lg w-2/5">
+  <div class="flex flex-col items-center bg-my_white mt-8 p-8 rounded-lg shadow-lg w-2/5">
     <div class="mb-6 text-lg font-bold">
         <h2>新規投稿</h2>
     </div>
@@ -25,14 +25,14 @@
 
         <div class="form-control mb-5">
           <%= f.label :category, 'カテゴリ' %>
-          <div id="category-badge-container" class="flex flex-wrap space-x-2 mt-1 w-full px-2 py-1 h-9 border rounded">
+          <div id="category-badge-container" class="flex flex-wrap space-x-2 mt-1 w-full px-2 py-1 h-9 border rounded bg-white">
             <!-- カテゴリのバッジがここに追加される -->
           </div>
         </div>
 
         <div class="form-control mb-5">
           <%= f.label :image, "御朱印の写真" %>
-          <%= f.file_field :image, class: "file-input file-input-bordered file:border-0 file:bg-waterblue file:text-slate-800 text-sm text-gray-400 w-full h-9" %>
+          <%= f.file_field :image, class: "file-input file-input-bordered file:border-0 file:bg-background file:text-slate-800 text-sm text-gray-400 w-full h-9" %>
         </div>
 
         <div class="form-control mb-5">

@@ -1,7 +1,7 @@
 <% breadcrumb :user_registration_new %>
 
 <div class="flex items-center justify-center h-screen bg-background">
-  <div class="flex flex-col w-2/5 p-4 rounded-lg border-2 border-navy bg-white">
+  <div class="flex flex-col w-2/5 p-4 rounded-lg shadow-lg bg-my_white">
     <h2 class="text-lg font-bold my-6 text-center"><%= t('.title') %></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

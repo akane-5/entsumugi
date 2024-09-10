@@ -26,14 +26,6 @@ img {
   position: absolute;
 }
 
-.bg-custom {
-  background-color: #F0EBDB;
-}
-
-.text-custom {
-  color: #5F5434;
-}
-
 .bg-button {
   background-color: #BCA446;
 }
@@ -47,7 +39,7 @@ img {
 }
 
 .breadcrumb {
-  @apply p-4 text-zinc-700;
+  @apply p-4 bg-background font-zenmaru text-zinc-700;
 }
 
 .breadcrumb a {
