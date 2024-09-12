@@ -15,12 +15,13 @@
     <script src="https://kit.fontawesome.com/7f14a3005c.js" crossorigin="anonymous"></script>
   </head>
 
-  <body class="font-zenmaru bg-background">
+  <body class="font-zenmaru">
     <% if user_signed_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/header_before_login' %>
     <% end %>
+    <%= render 'layouts/flash_messages' %>
     <%= breadcrumbs separator: ' &rsaquo; ', class: 'breadcrumb' %>
     <%= yield %>
   </body>

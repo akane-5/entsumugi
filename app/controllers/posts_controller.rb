@@ -9,8 +9,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to users_path, notice: '投稿が成功しました！'
+      flash[:success] = '投稿が成功しました！'
+      redirect_to users_path
     else
+      flash[:alert] = "投稿できませんでした"
       render :new
     end
   end

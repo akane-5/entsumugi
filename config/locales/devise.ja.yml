@@ -74,8 +74,8 @@ ja:
         message: ログイン失敗が繰り返されたため、アカウントはロックされています。
         subject: アカウントのロック解除について
     omniauth_callbacks:
-      failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"
-      success: "%{kind} アカウントによる認証に成功しました。"
+      failure: "%{kind} アカウントによる認証に失敗しました 理由：（%{reason}）"
+      success: "%{kind} アカウントでログインしました"
     passwords:
       edit:
         change_my_password: パスワードを変更する
@@ -91,8 +91,8 @@ ja:
       no_token: このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URL をご確認ください。
       send_instructions: パスワードの再設定について数分以内にメールでご連絡いたします。
       send_paranoid_instructions: メールアドレスが登録済みの場合、パスワード再設定用のメールが数分以内に送信されます。
-      updated: パスワードが正しく変更されました。
-      updated_not_active: パスワードが正しく変更されました。
+      updated: パスワードが正しく変更されました
+      updated_not_active: パスワードが正しく変更されました
     registrations:
       destroyed: アカウントを削除しました。またのご利用をお待ちしております。
       edit:
@@ -107,7 +107,7 @@ ja:
       new:
         title: ユーザー登録
         sign_up: 登録
-      signed_up: アカウント登録が完了しました。
+      signed_up: ユーザー登録が完了しました
       signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
       signed_up_but_locked: アカウントがロックされているためログインできません。
       signed_up_but_unconfirmed: 本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。
@@ -118,8 +118,8 @@ ja:
       already_signed_out: 既にログアウト済みです。
       new:
         sign_in: ログイン
-      signed_in: ログインしました！
-      signed_out: ログアウトしました！
+      signed_in: ログインしました
+      signed_out: ログアウトしました
     shared:
       links:
         back: 戻る
