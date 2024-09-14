@@ -1,9 +1,9 @@
 <% breadcrumb :shrines_search %>
 
-<div class="container mx-auto py-12">
+<div class="bg-background py-12 px-6">
   <div class="flex space-x-5">
     <!-- Sidebar for search options -->
-    <div class="w-1/4 p-4 rounded-lg border-2 border-navy bg-my_white">
+    <div class="w-1/4 p-4 rounded-lg shadow-lg bg-my_white">
       <%= search_form_for @q, url: shrines_path, method: :get, data: { turbo: false } do |f| %>
         <div class="mb-4 pt-2">
           <%= f.label :prefecture_id, '都道府県', class: 'block text-gray-700 font-bold mb-2 text-center' %>

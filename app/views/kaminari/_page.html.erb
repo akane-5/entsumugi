@@ -1,9 +1,9 @@
 <% if page.current? %>
   <li class="page current">
-    <%= link_to_if page.current?, page, url, {remote: remote, rel: page.rel, class: "block py-[9px] w-8 h-8 rounded-full bg-buttonAlt text-xs text-gray-700 font-bold text-center !leading-none" } %>
+    <%= link_to_if page.current?, page, url, {remote: remote, rel: page.rel, class: "block py-[9px] w-8 h-8 rounded-full bg-header_footer text-xs text-gray-700 font-bold text-center !leading-none" } %>
   </li>
 <% else %>
   <li class="page">
-    <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: "block py-[9px] w-8 h-8 bg-white text-xs text-gray-700 font-bold text-center !leading-none" } %>
+    <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: "block py-[9px] w-8 h-8 bg-background text-xs text-gray-700 font-bold text-center !leading-none" } %>
   </li>
 <% end %>
