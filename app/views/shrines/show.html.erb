@@ -1,6 +1,6 @@
 <% breadcrumb :shrines_show, @shrine %>
 
-<div class="container mx-auto pt-12 pb-8 ">
+<div class="bg-background min-h-screen px-6 pt-12">
   <div class="bg-my_white p-4 w-9/12 h-1/4 rounded-lg mx-auto shadow-md">
     <div class="flex items-center">
       <div class="w-2/5">
@@ -48,10 +48,8 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="container mx-auto pt-12 pb-8">
-  <div class="flex flex-wrap justify-center">
+  <div class="flex flex-wrap justify-center pt-32">
     <% if @no_results %>
       <div class="text-red-500 text-lg">投稿がありません</div>
     <% else %>
@@ -68,8 +66,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-  <div class="mt-8 text-center text-xl">
-    <%#= paginate @posts %>
   </div>
 </div>
