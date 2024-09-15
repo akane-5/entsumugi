@@ -1,7 +1,7 @@
-<header class='bg-header_footer'>
-  <div class='navbar'>
-    <div class='flex-1'>
-      <%= link_to image_tag('logo.png', class: 'h-12'), '/' %>
+<header class="bg-header_footer flex justify-center fixed h-14 w-full z-50">
+  <div class="navbar">
+    <div class="flex-1">
+      <%= breadcrumbs separator: ' &rsaquo; ', class: 'breadcrumb' %>
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal flex items-center">
@@ -12,13 +12,16 @@
             <summary class="mr-2">
               メニュー
             </summary>
-            <ul class="bg-my_white px-1 py-2 rounded-md text-sm top-7 right-1 leading-relaxed w-40 z-50">
+            <ul class="bg-my_white px-1 py-2 rounded-md text-sm top-7 right-1 leading-relaxed w-48 z-50">
               <li><%= link_to '神社を検索', '#' %></li>
               <li><%= link_to 'みんなの投稿', '#' %></li>
-              <li><%= link_to '新規投稿', new_post_path %></li>
+              <hr class="my-2 h-0.5 border-t-0 bg-neutral-100" />
+              <li><%= link_to 'お問い合わせ', 'https://docs.google.com/forms/d/e/1FAIpQLSf76Lf1iJvskWvw8sON5MAETE_BDj1m7UG_idHepwozCU8vzw/viewform?embedded=true', target: '_blank', rel: 'noopener' %></li>
+              <li><%= link_to '利用規約', terms_of_service_path %></li>
+              <li><%= link_to 'プライバシーポリシー',  privacy_policy_path %></li>
               <hr class="my-2 h-0.5 border-t-0 bg-neutral-100" />
               <li class="share-button-container w-10">
-                <%= link_to "https://twitter.com/intent/tweet?text=えんつむぎ 神社と御朱印の情報共有サービス&url=#{request.original_url}", target: '_blank', rel: 'noopener' do %>
+                <%= link_to "https://twitter.com/intent/tweet?text=えんつむぎ~神社と御朱印の情報共有サービス~&url=#{request.original_url}%0A%23えんつむぎ", target: '_blank', rel: 'noopener' do %>
                   <i class="fa-brands fa-x-twitter fa-lg py-2 px-2" style="color: #5f5434;"></i>
                 <% end %>
               </li>

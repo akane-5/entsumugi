@@ -1,18 +1,31 @@
 <% breadcrumb :root %>
 
-<main class="bg-background text-text relative">
-  <img src="<%= asset_path 'main_image.png' %>" alt="Main Image" class="w-full h-screen object-cover" >
-
-  <div class="absolute inset-0 bottom-0 flex justify-center items-end space-x-44">
-    <div class="bg-white bg-opacity-55 p-8 rounded-md w-3/12 h-40 flex flex-col">
-    <%= link_to "神社を検索", search_shrines_path, class: "bg-button text-white py-2 px-4 rounded-md text-center" %>
-      <p class="mt-2 text-text text-center">地図、都道府県名、神社カテゴリ、フリーワードから検索できます</p>
+<main class="bg-background text-text">
+  <div class="flex h-screen ">
+    <!-- 背景画像セクション-->
+    <div class="w-8/12 relative">
+      <img src="<%= asset_path 'main_image.jpeg' %>" alt="Main Image" class="w-full h-full object-cover opacity-80">
     </div>
-    <div class="bg-white bg-opacity-55 p-8 rounded-md w-3/12 h-40 flex flex-col">
-      <%= link_to "人気の御朱印", "#", class: "bg-button text-white py-2 px-4 rounded-md text-center" %>
-      <p class="mt-2 text-text text-center">人気の御朱印を一覧で見れます</p>
+
+    <!-- パターン画像セクション-->
+    <div class="w-4/12 relative flex items-center justify-center bg-white bg-opacity-80">
+      <img src="<%= asset_path 'pattern.jpeg' %>" alt="Pattern Image" class="absolute inset-0 w-full h-full object-cover opacity-60">
+
+      <!-- コンテンツ-->
+      <div class="relative z-10 flex flex-col items-center p-8">
+        <div class="flex flex-col items-center mb-32">
+          <h1 class="text-xl font-bold text-[#B2AA5F] mb-4">神社と御朱印の情報共有サービス</h1>
+          <img src="<%= asset_path 'logo.png' %>" alt="えんつむぎ" class="w-40 h-auto">
+        </div>
+        <!-- 神社を検索ボタン -->
+        <div class="bg-white bg-opacity-70 p-6 rounded-md shadow-lg text-center">
+          <%= link_to "神社を検索", search_shrines_path, class: "bg-button text-white py-2 px-4 rounded-md" %>
+          <p class="mt-6 text-gray-700">
+            地図、都道府県、ご利益別、 <br>
+            フリーワードから検索できます
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-
-  <%= render 'shared/footer' %>
 </main>
