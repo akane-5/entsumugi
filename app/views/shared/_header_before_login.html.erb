@@ -12,9 +12,16 @@
             <summary class="mr-2">
               メニュー
             </summary>
-            <ul class="bg-my_white px-1 py-2 rounded-md text-sm top-7 right-1 leading-relaxed w-40 z-10">
-              <li><%= link_to '神社を探す', '#' %></li>
-              <li><%= link_to '御朱印を投稿', '#' %></li>
+            <ul class="bg-my_white px-1 py-2 rounded-md text-sm top-7 right-1 leading-relaxed w-40 z-50">
+              <li><%= link_to '神社を検索', '#' %></li>
+              <li><%= link_to 'みんなの投稿', '#' %></li>
+              <li><%= link_to '新規投稿', new_post_path %></li>
+              <hr class="my-2 h-0.5 border-t-0 bg-neutral-100" />
+              <li class="share-button-container w-10">
+                <%= link_to "https://twitter.com/intent/tweet?text=えんつむぎ 神社と御朱印の情報共有サービス&url=#{request.original_url}", target: '_blank', rel: 'noopener' do %>
+                  <i class="fa-brands fa-x-twitter fa-lg py-2 px-2" style="color: #5f5434;"></i>
+                <% end %>
+              </li>
             </ul>
           </details>
         </li>
