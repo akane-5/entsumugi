@@ -30,16 +30,8 @@ img {
   background-color: #BCA446;
 }
 
-.bg-button-light {
-  background-color: #CFCAA5;
-}
-
-.header-footer-height {
-  height: 80px;
-}
-
 .breadcrumb {
-  @apply p-4 bg-background font-zenmaru text-zinc-700;
+  @apply px-4 py-2 bg-header_footer font-zenmaru text-zinc-700;
 }
 
 .breadcrumb a {
