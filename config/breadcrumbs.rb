@@ -37,6 +37,11 @@ crumb :shrines_show do |shrine|
   parent :shrines_index
 end
 
+crumb :posts_new do
+  link '新規投稿',  new_post_path
+  parent :root
+end
+
 crumb :users_show do
   link 'マイページ',  users_path
   parent :root
