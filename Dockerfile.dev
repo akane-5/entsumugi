@@ -15,6 +15,14 @@ RUN apt-get update -qq \
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs yarn vim postgresql-client imagemagick libmagickwand-dev
 
+# Google Cloud SDKのリポジトリ追加と公開鍵の取得
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" \
+    | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg \
+    | gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+
+# Google Cloud SDKのインストール
+RUN apt-get update && apt-get install -y google-cloud-sdk
 WORKDIR /myapp
 
 COPY Gemfile Gemfile.lock ./
