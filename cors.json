@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["https://en-tsumugi.com", "https://www.en-tsumugi.com", "http://localhost:3000"],
+    "responseHeader": ["Content-Type", "Authorization"],
+    "method": ["GET", "HEAD", "OPTIONS", "POST", "PUT", "DELETE"],
+    "maxAgeSeconds": 3600
+  }
+]

@@ -23,8 +23,7 @@ class Shrine < ApplicationRecord
   def formatted_photo_reference
     # JSON形式からURLを取り出す
     urls = JSON.parse(photo_reference)
-    # 最初のURLを取り出してエスケープ解除
-    image_url = urls.first.gsub('\u0026', '&') if urls.any?
-    image_url
+    # 配列の最初のURLを返す
+    urls.first
   end
 end
