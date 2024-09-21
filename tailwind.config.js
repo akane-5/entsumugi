@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   content: [
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',
@@ -10,15 +11,16 @@ module.exports = {
       colors: {
         background: '#FFFDF4',
         header_footer: '#CFCAA5',
-        btn: '#626C88',
+        btn: '#8B8244',
         text: '#5F5434',
         pink: '#F3D3B8',
         blue: '#A5C3CF',
         yellow: '#F4CC70',
         green: '#A99F3C',
-        green2: '#C3BC75',
+        olive: '#C3BC75',
         navy: '#525E83',
         red: '#CF5326',
+        purple: '#D8C4E4',
         my_white: '#FCFAF7'
       },
       fontFamily: {

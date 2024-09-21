@@ -1,8 +1,6 @@
-<div class="flex justify-center">
-  <div class="flex flex-col items-center bg-base-100 mt-28 p-8 rounded-lg shadow-lg w-2/5">
-    <div class="mb-6 text-lg">
-      <h2><%= t('.reset_password') %></h2>
-    </div>
+<div class="flex justify-center h-screen bg-background pt-32 pb-12 px-6">
+  <div class="flex items-center flex-col w-2/5 p-4 rounded-lg shadow-lg bg-my_white">
+    <h2 class="text-lg font-bold my-6 text-center"><%= t('.reset_password') %></h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -13,7 +11,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit t('.send_me_reset_password_mail'), class: 'bg-navy text-white py-2 px-4 mt-8 rounded w-auto text-center text-sm'%>
+        <%= f.submit t('.send_me_reset_password_mail'), class: 'btn btn-sm bg-btn text-white w-auto mt-10'%>
       </div>
     <% end %>
   </div>

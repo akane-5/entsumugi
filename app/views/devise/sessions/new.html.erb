@@ -1,6 +1,6 @@
 <% breadcrumb :user_session_new %>
 
-<div class="flex items-center justify-center h-screen bg-background">
+<div class="flex items-center justify-center h-screen bg-background pt-32 pb-12 px-6">
   <div class="flex flex-col w-2/5 p-4 rounded-lg shadow-lg bg-my_white">
     <h2 class="text-lg font-bold my-6 text-center"><%= t('.sign_in') %></h2>
 
@@ -17,6 +17,10 @@
         <%= f.password_field :password, autocomplete: "current-password", class: "border rounded-lg w-full h-9"  %>
       </div>
 
+      <div  class="form-control mt-4 mb-6 px-10 flex flex-col items-center w-full">
+        <%= link_to 'パスワードをお忘れの方はこちら', new_user_password_path, data: { turbo: false }, class: 'text-center underline underline-offset-2 decoration-1 decoration-gray-300' %>
+      </div>
+
       <div  class="form-control my-4 px-10 flex flex-col items-center w-full">
         <% if devise_mapping.rememberable? %>
           <div class="field">
@@ -26,12 +30,8 @@
         <% end %>
       </div>
 
-      <div  class="form-control mt-4 mb-6 px-10 flex flex-col items-center w-full">
-        <%= link_to 'パスワードをお忘れの方はこちら', new_user_password_path, data: { turbo: false }, class: 'text-center underline underline-offset-2 decoration-1 decoration-gray-300' %>
-      </div>
-
       <div class="form-control my-4 flex flex-col items-center">
-        <%= f.submit t('.sign_in'), class: "btn bg-navy text-white w-24 "%>
+        <%= f.submit t('.sign_in'), class: "btn btn-sm bg-btn text-white w-36"%>
       </div>
     <% end %>
 
@@ -41,8 +41,9 @@
       <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false } do %>
         <%= image_tag('google_icon_light_sq_SI@2x.png', class: 'w-full h-9') %>
       <% end %>
+      <div  class="form-control mt-8 mb-4 px-10 flex flex-col items-center w-full">
+        <%= link_to 'ユーザー登録はこちら', new_user_registration_path, data: { turbo: false }, class: 'text-center underline underline-offset-2 decoration-1 decoration-gray-300' %>
+      </div>
     </div>
-
-    <%#= render "devise/shared/links" %>
   </div>
 </div>
