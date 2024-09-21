@@ -22,12 +22,24 @@ class ShrinesController < ApplicationController
 
   def index
     @q = Shrine.ransack(params[:q])
-    @shrines = @q.result.page(params[:page]).per(9)
+
+    if params[:q][:category_id_in].present?
+      # タグが選択されている場合は、選択されたカテゴリに該当する神社を絞り込む
+      @shrines = @q.result
+                   .includes(shrine_categories: :category)
+                   .joins(:shrine_categories) # shrine_categoriesテーブルと結合
+                   .where(shrine_categories: { category_id: params[:q][:category_id_in] })
+                   .distinct.page(params[:page]).per(9)
+    else
+      # タグが選択されていない場合は従来通りの検索結果を表示
+      @shrines = @q.result.includes(shrine_categories: :category).page(params[:page]).per(9)
+    end
     @no_results = @shrines.empty? # 結果がない場合の表示
   end
 
   def show
     @shrine = Shrine.find(params[:id])
+    @categories = @shrine.shrine_categories.includes(:category) # カテゴリを関連づけて取得
     @posts = @shrine.posts # 神社に関連する投稿を取得
     @no_results = @posts.empty? # 投稿がないかどうかを判定
   end

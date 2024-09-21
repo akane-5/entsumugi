@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def my_posts
     @user = current_user # 現在のユーザーを取得
-    @posts = @user.posts # ユーザーの投稿を取得
+    @posts = @user.posts.includes(shrine: :shrine_categories).order(created_at: :desc) # ユーザーの投稿を取得
     @no_results = @posts.empty? # 投稿がないかどうかを判断
     render partial: 'my_posts'
   end

@@ -19,6 +19,10 @@ class Shrine < ApplicationRecord
     %w[prefecture_id name]
   end
 
+  def self.ransackable_associations(auth_object = nil)
+    %w[shrine_categories categories]
+  end
+
   # photo_referenceからURLを取得するメソッド
   def formatted_photo_reference
     # JSON形式からURLを取り出す
