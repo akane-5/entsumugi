@@ -9,15 +9,24 @@
       <% @shrines.each do |shrine| %>
         <div class="card bg-my_white w-80 shadow m-4">
           <figure>
-            <img src="<%= shrine.formatted_photo_reference %>" alt="<%= shrine.name %>の写真" class="w-full h-56 object-cover">
+            <% image_url = shrine.formatted_photo_reference.presence || asset_path('sample.jpg') %>
+            <img src="<%= image_url %>" alt="<%= shrine.name %>の写真" class="w-full h-56 object-cover">
           </figure>
           <div class="card-body h-56">
             <div class="card-title"><%= shrine.name %></div>
             <p><%= shrine.address %></p>
-            <div class="card-actions justify-start">
-              <div class="badge badge-outline bg-yellow">金運</div>
-              <div class="badge badge-outline bg-pink">恋愛運</div>
-              <div class="badge badge-outline bg-blue">健康運</div>
+            <div class="flex">
+              <% shrine.shrine_categories.each do |shrine_category| %>
+                <div class="badge text-xs 
+                  <%= "bg-blue" if shrine_category.category.name == '総合運' %>
+                  <%= "bg-yellow" if shrine_category.category.name == '金運' %>
+                  <%= "bg-pink" if shrine_category.category.name == '恋愛運' %>
+                  <%= "bg-olive" if shrine_category.category.name == '健康運' %>
+                  <%= "bg-purple" if shrine_category.category.name == '仕事・学業運' %>
+                  opacity-40 text-black py-3">
+                  <%= shrine_category.category.name %>
+                </div>
+              <% end %>
             </div>
             <div class="px-6 pt-4 pb-2 flex justify-center">
               <%= link_to '詳細', shrine_path(shrine), class: 'bg-btn text-white font-bold py-1 px-8 rounded' %>

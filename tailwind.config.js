@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         background: '#FFFDF4',
         header_footer: '#CFCAA5',
-        btn: '#8B8244',
+        btn: '#95927B',
         text: '#5F5434',
         pink: '#F3D3B8',
         blue: '#A5C3CF',

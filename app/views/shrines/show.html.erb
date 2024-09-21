@@ -31,19 +31,19 @@
           <% end %>
         </div>
 
-        <p class="text-gray-700 mt-6"><%= @shrine.address %></p>
-        <p class="text-gray-700 mt-2">
-          公式サイト: 
-          <% if @shrine.website.present? %>
-            <%= link_to @shrine.website, @shrine.website, target: '_blank', rel: 'noopener' %>
-          <% else %>
-            -
-          <% end %>
-        </p>
+        <p class="text-gray-700 mt-4"><%= @shrine.address %></p>
         <div class="flex mt-6">
-          <span class="bg-yellow text-black font-bold py-1 px-2 rounded mr-2">金運</span>
-          <span class="bg-pink text-black font-bold py-1 px-2 rounded mr-2">恋愛運</span>
-          <span class="bg-blue text-black font-bold py-1 px-2 rounded">健康運</span>
+          <% @categories.each do |shrine_category| %>
+            <div class="badge 
+              <%= "bg-blue" if shrine_category.category.name == '総合運' %>
+              <%= "bg-yellow" if shrine_category.category.name == '金運' %>
+              <%= "bg-pink" if shrine_category.category.name == '恋愛運' %>
+              <%= "bg-olive" if shrine_category.category.name == '健康運' %>
+              <%= "bg-purple" if shrine_category.category.name == '仕事・学業運' %>
+              opacity-40 text-black py-3">
+              <%= shrine_category.category.name %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -51,7 +51,10 @@
 
   <div class="flex flex-wrap justify-center pt-32">
     <% if @no_results %>
-      <div class="text-red-500 text-lg">投稿がありません</div>
+      <div class="flex flex-col items-center justify-center">
+        <p class=" text-xl">御朱印の写真がありません<i class="fa-regular fa-face-surprise style="color: #403b45;"></i></p>
+        <%= link_to '投稿する', new_post_path, class: 'bg-navy text-white py-2 px-4 mt-6 rounded' %>
+      </div>
     <% else %>
       <% @posts.each do |post| %>
         <div class="card w-72 bg-white shadow m-4">
