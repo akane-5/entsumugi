@@ -18,12 +18,12 @@
             <div class="flex">
               <% shrine.shrine_categories.each do |shrine_category| %>
                 <div class="badge text-xs 
-                  <%= "bg-blue" if shrine_category.category.name == '総合運' %>
-                  <%= "bg-yellow" if shrine_category.category.name == '金運' %>
-                  <%= "bg-pink" if shrine_category.category.name == '恋愛運' %>
-                  <%= "bg-olive" if shrine_category.category.name == '健康運' %>
-                  <%= "bg-purple" if shrine_category.category.name == '仕事・学業運' %>
-                  opacity-40 text-black py-3">
+                  <%= "bg-blue opacity-70" if shrine_category.category.name == '総合運' %>
+                  <%= "bg-yellow opacity-70" if shrine_category.category.name == '金運' %>
+                  <%= "bg-pink opacity-70" if shrine_category.category.name == '恋愛運' %>
+                  <%= "bg-olive opacity-70" if shrine_category.category.name == '健康運' %>
+                  <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %>
+                  text-black py-3">
                   <%= shrine_category.category.name %>
                 </div>
               <% end %>

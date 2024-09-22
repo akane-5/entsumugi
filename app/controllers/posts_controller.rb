@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def new
     @post = Post.new
     @shrines = Shrine.all # 神社データを取得する

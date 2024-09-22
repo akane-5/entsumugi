@@ -35,12 +35,12 @@
         <div class="flex mt-6">
           <% @categories.each do |shrine_category| %>
             <div class="badge 
-              <%= "bg-blue" if shrine_category.category.name == '総合運' %>
-              <%= "bg-yellow" if shrine_category.category.name == '金運' %>
-              <%= "bg-pink" if shrine_category.category.name == '恋愛運' %>
-              <%= "bg-olive" if shrine_category.category.name == '健康運' %>
-              <%= "bg-purple" if shrine_category.category.name == '仕事・学業運' %>
-              opacity-40 text-black py-3">
+              <%= "bg-blue opacity-70" if shrine_category.category.name == '総合運' %>
+              <%= "bg-yellow opacity-70" if shrine_category.category.name == '金運' %>
+              <%= "bg-pink opacity-70" if shrine_category.category.name == '恋愛運' %>
+              <%= "bg-olive opacity-70" if shrine_category.category.name == '健康運' %>
+              <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %>
+              text-black py-3">
               <%= shrine_category.category.name %>
             </div>
           <% end %>
@@ -49,25 +49,35 @@
     </div>
   </div>
 
-  <div class="flex flex-wrap justify-center pt-32">
+  <div>
     <% if @no_results %>
       <div class="flex flex-col items-center justify-center">
         <p class=" text-xl">御朱印の写真がありません<i class="fa-regular fa-face-surprise style="color: #403b45;"></i></p>
-        <%= link_to '投稿する', new_post_path, class: 'bg-navy text-white py-2 px-4 mt-6 rounded' %>
+        <%= link_to '投稿する', new_post_path, class: 'bg-btn text-white py-2 px-4 mt-6 rounded' %>
       </div>
     <% else %>
-      <% @posts.each do |post| %>
-        <div class="card w-72 bg-white shadow m-4">
-          <figure>
-          <%= image_tag post.image, alt: "御朱印の写真", class: "w-full h-auto max-h-60 object-cover" %>
-          </figure>
-          <div class="card-body p-6">
-            <div class="card-title"><%= post.user.name %></div>
-            <div><%= post.body %></div>
-            <div><%= post.updated_at %></div>
-          </div>
+      <div class="flex flex-col items-center justify-center">
+        <p class="text-xl mt-16">みんなの投稿<i class="fa-regular fa-face-smile" style="color: #403b45;"></i></p>
+
+        <div class="flex flex-wrap justify-center mt-6">
+          <% @posts.each do |post| %>
+            <div class="card w-72 bg-my_white shadow-lg m-4">
+              <figure class="px-4 mt-6">
+                <%= image_tag post.image, alt: "御朱印の写真", class: "rounded-lg w-full h-52 max-h-60 object-cover" %>
+              </figure>
+              <div class="card-body px-6 pb-4 pt-2">
+                <h2 class="card-title">
+                  <%= post.body %>
+                </h2>
+                <div class="flex items-end pt-4">
+                  <p><%= post.user.name %></p>
+                  <p class="text-end"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>
