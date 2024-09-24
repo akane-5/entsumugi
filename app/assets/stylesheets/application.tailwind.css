@@ -1,19 +1,24 @@
+@import "daisyui";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "daisyui";
 
 /* カスタムスタイルの追加 */
 html, body {
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-main {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 80px); /* ヘッダーとフッターの高さを考慮 */
+.breadcrumb {
+  background-color: #FFFDF4;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+}
+
+.breadcrumb a {
+  @apply hover:text-zinc-400;
 }
 
 img {
@@ -28,14 +33,6 @@ img {
 
 .bg-button {
   background-color: #BCA446;
-}
-
-.breadcrumb {
-  @apply px-4 py-2 bg-header_footer font-zenmaru text-zinc-700;
-}
-
-.breadcrumb a {
-  @apply hover:text-zinc-400;
 }
 
 .flash_notice {
