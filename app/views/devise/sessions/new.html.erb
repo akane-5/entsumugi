@@ -1,7 +1,7 @@
 <% breadcrumb :user_session_new %>
 
 <div class="flex items-center justify-center h-screen bg-background pt-32 pb-12 px-6">
-  <div class="flex flex-col w-2/5 p-4 rounded-lg shadow-lg bg-my_white">
+  <div class="w-full md:w-2/5 p-4 rounded-lg shadow-lg bg-my_white">
     <h2 class="text-lg font-bold my-6 text-center"><%= t('.sign_in') %></h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

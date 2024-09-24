@@ -1,7 +1,21 @@
 <% breadcrumb :posts_new %>
 
-<div class="flex justify-center pt-20 pb-12 px-6 bg-background">
-  <div class="flex flex-col items-center bg-my_white mt-8 p-8 rounded-lg shadow-lg w-2/5">
+<div class="flex flex-col items-center justify-center pt-20 pb-12 px-6 bg-background">
+  <div class="flex flex-col pt-8 w-2/5">
+    <button class="text-sky-600 text-sm hover:text-sky-400 text-end" onclick="my_modal_3.showModal()">神社の登録がない場合はこちら</button>
+    <dialog id="my_modal_3" class="modal">
+      <div class="modal-box w-72 h-50">
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-10 px-20 m-10">神社の登録</p>
+      </div>
+    </dialog>
+  </div>
+
+
+  <div class="flex flex-col items-center bg-my_white mt-2 p-8 rounded-lg shadow-lg w-2/5">
     <div class="mb-6 text-lg font-bold">
         <h2>新規投稿</h2>
     </div>
@@ -13,27 +27,26 @@
 
         <div class="form-control mb-5">
           <div class="flex justify-between items-center">
-            <%= f.label :shrine_name, '神社名' %>
-            <%= link_to '候補の中にない場合はこちら', '#', class: 'text-sky-600 text-sm hover:text-sky-400' %>
+            <%= f.label :shrine_name, '神社名', for: "shrine_name" %>
           </div>
-          <%= f.text_field :shrine_name, id: 'shrine_name', class: "w-full px-2 py-1 h-9 border rounded text-sm", placeholder: '入力すると候補が表示されます' %>
+          <%= f.text_field :shrine_name, id: 'shrine_name', class: "w-full px-2 py-1 h-9 border rounded text-sm", placeholder: '神社名を入力すると住所とカテゴリが表示されます' %>
         </div>
 
         <div class="form-control mb-5">
-          <%= f.label :address, '住所' %>
-          <input type="text" id="address" class="w-full px-2 py-1 h-9 border rounded text-sm" readonly> <!-- 自動入力された住所を表示 -->
+          <%= f.label :address, '住所', for: "address" %>
+          <%= f.text_field :address, id: 'address', class: "w-full px-2 py-1 h-9 border rounded text-sm bg-my_white", autocomplete: 'address' %>
+          <!-- 自動入力された住所を表示 -->
         </div>
 
         <div class="form-control mb-5">
-          <%= f.label :category, 'カテゴリ' %>
-          <div id="category-badge-container" class="flex flex-wrap space-x-2 mt-1 w-full px-2 py-1 h-9 border rounded bg-white">
+          <%= f.label :category, 'カテゴリ', for: "category-badge-container" %>
+          <div id="category-badge-container" class="flex flex-wrap space-x-2 mt-1 w-full px-2 py-1 h-9">
             <!-- カテゴリのバッジがここに追加される -->
-          </div>
         </div>
 
         <div class="form-control mb-5">
           <%= f.label :image, "御朱印の写真" %>
-          <%= f.file_field :image, class: "file-input file-input-bordered file:border-0 file:bg-background file:text-slate-800 text-sm text-gray-400 w-full h-9" %>
+          <%= f.file_field :image, class: "file-input file-input-bordered file:border-0 file:bg-my_white text-sm text-gray-700 w-full h-9" %>
         </div>
 
         <div class="form-control mb-5">
@@ -42,7 +55,7 @@
         </div>
 
         <div class="form-control flex items-center mt-7">
-          <%= f.submit '投稿する', class: 'bg-navy text-white py-2 px-4 rounded w-32 text-center' %>
+          <%= f.submit '投稿する', class: 'bg-btn text-white py-2 px-4 rounded w-32 text-center' %>
         </div>
       <% end %>
     </div>
