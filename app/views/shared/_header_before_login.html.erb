@@ -1,19 +1,18 @@
-<header class="bg-header_footer flex justify-center fixed h-14 w-full z-50">
+<header class="bg-header_footer w-full h-14 fixed top-0 z-50 flex justify-center">
   <div class="navbar">
     <div class="flex-1">
-      <%= breadcrumbs separator: ' &rsaquo; ', class: 'breadcrumb' %>
+      <%= link_to image_tag('logo2.png', class: 'w-32'), '/' %>
     </div>
+    <!-- メニュー -->
     <div class="flex-none">
       <ul class="menu menu-horizontal flex items-center">
         <li><%= link_to 'ユーザー登録', new_user_registration_path %></li>
         <li><%= link_to 'ログイン', new_user_session_path %></li>
         <li>
           <details class="relative">
-            <summary class="mr-2">
-              メニュー
-            </summary>
+            <summary class="mr-2">メニュー</summary>
             <ul class="bg-my_white px-1 py-2 rounded-md text-sm top-7 right-1 leading-relaxed w-48 z-50">
-              <li><%= link_to '神社を検索', '#' %></li>
+              <li><%= link_to '神社を検索', search_shrines_path %></li>
               <li><%= link_to 'みんなの投稿', '#' %></li>
               <hr class="my-2 h-0.5 border-t-0 bg-neutral-100" />
               <li><%= link_to 'お問い合わせ', 'https://docs.google.com/forms/d/e/1FAIpQLSf76Lf1iJvskWvw8sON5MAETE_BDj1m7UG_idHepwozCU8vzw/viewform?embedded=true', target: '_blank', rel: 'noopener' %></li>
