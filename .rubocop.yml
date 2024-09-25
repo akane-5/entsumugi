@@ -1,25 +1,98 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-performance
+
 AllCops:
   TargetRubyVersion: 3.2.3
-  NewCops: enable
+  NewCops: enable # 最新のルールを適用する
+  DisplayCopNames: true # 何のルールに引っかかったか表示する
+  # rubocopの対象外ファイル
+  Exclude:
+    - "Gemfile"
+    - "bin/**/*"
+    - "db/**/*"
+    - "log/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "lib/tasks/auto_annotate_models.rake"
+    - "config/environments/*"
+    - "config/puma.rb"
+    - "node_modules/**/*"
 
-# 日本語でのコメントを許可
+# ルールのカスタマイズ
+
+# 設定が厳しいので一旦全てfalseにする
+Metrics:
+  Enabled: false
+
+# 一行あたりの文字数
+Layout/LineLength:
+  Enabled: false
+
+# メソッドの改行ルール
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# 日本語コメントを許可
 Style/AsciiComments:
   Enabled: false
 
-# クラスやモジュール定義前に、それらの説明書きがあるかをチェック（無効）
+# クラスにコメントを残さなくても良い(クラスやモジュール定義前に、それらの説明書きがあるか)
 Style/Documentation:
   Enabled: false
 
-Rails/BulkChangeTable:
+# コントローラ等のモジュールをネストしての宣言
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# 文字列のfreeze（Ruby3からは自動でfreezeされるので要らない）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# ガード節の提案（難しいので一旦false）
+Style/GuardClause:
+  Enabled: false
+
+# 文字列のダブルクォートチェック
+Style/StringLiterals:
+  Enabled: false
+
+# シンボルによる配列の%記法のチェック
+Style/SymbolArray:
+  Enabled: false
+  # EnforcedStyle: brackets
+
+# 文字列による配列の%記法のチェック
+Style/WordArray:
+  Enabled: false
+
+# 変数名に数字を許可
+Naming/VariableNumber:
+  Enabled: false
+
+# = と == の指摘
+Lint/AssignmentInCondition:
+  Enabled: false
+
+# メソッド名等の命名の指摘
+Naming/PredicateName:
+  Enabled: false
+
+# 未i18nのチェック（バリデーションエラーメッセージをi18nに登録するのはやや冗長？なためfalse）
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+# before_actionの際の未定義メソッドのチェック（deviseとの兼ね合いで一旦false）
+Rails/LexicallyScopedActionFilter:
   Enabled: false
 
 # フローズン・ストリング・リテラル・コメント(文字列が変更されることを防ぐために設定するコメント)のチェックを無効
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-require:
-  - rubocop-rails
-  - rubocop-rake
-  - rubocop-performance
+# マイグレーションファイルにおけるbulk: trueオプションのチェック(1つのテーブルに対する処理をまとめて書こうというもの)
+Rails/BulkChangeTable:
+  Enabled: false
