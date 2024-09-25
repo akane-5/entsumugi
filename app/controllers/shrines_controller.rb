@@ -26,10 +26,10 @@ class ShrinesController < ApplicationController
     if params[:q][:category_id_in].present?
       # タグが選択されている場合は、選択されたカテゴリに該当する神社を絞り込む
       @shrines = @q.result
-                   .includes(shrine_categories: :category)
-                   .joins(:shrine_categories) # shrine_categoriesテーブルと結合
-                   .where(shrine_categories: { category_id: params[:q][:category_id_in] })
-                   .distinct.page(params[:page]).per(9)
+        .includes(shrine_categories: :category)
+        .joins(:shrine_categories) # shrine_categoriesテーブルと結合
+        .where(shrine_categories: { category_id: params[:q][:category_id_in] })
+        .distinct.page(params[:page]).per(9)
     else
       # タグが選択されていない場合は従来通りの検索結果を表示
       @shrines = @q.result.includes(shrine_categories: :category).page(params[:page]).per(9)

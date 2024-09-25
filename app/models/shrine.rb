@@ -1,9 +1,9 @@
 class Shrine < ApplicationRecord
   belongs_to :prefecture
-  has_many :posts
-  has_many :shrine_categories
+  has_many :posts, dependent: :destroy
+  has_many :shrine_categories, dependent: :destroy
   has_many :categories, through: :shrine_categories
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_by_users, through: :bookmarks, source: :user
 
   validates :name, presence: true
