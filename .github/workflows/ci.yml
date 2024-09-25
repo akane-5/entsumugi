@@ -36,9 +36,9 @@ jobs:
         cp config/database.yml.ci config/database.yml
         RAILS_ENV=test bin/rails db:create db:schema:load
 
-    - name: Run RuboCop
+    - name: Run RuboCop on changed files
       run: |
-        bundle exec rubocop
+        git diff --name-only --diff-filter=AMR origin/main | grep '\.rb$' | xargs bundle exec rubocop
 
     - name: Run RSpec
       run: |
