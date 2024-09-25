@@ -6,7 +6,6 @@ class Shrine < ApplicationRecord
   has_many :bookmarks
   has_many :bookmarked_by_users, through: :bookmarks, source: :user
 
-
   validates :name, presence: true
   validates :address, presence: true
   validates :latitude, presence: true
