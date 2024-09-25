@@ -38,7 +38,7 @@ jobs:
 
     - name: Run RuboCop on changed files
       run: |
-        git diff --cached --name-only --diff-filter=ACMR | xargs bundle exec rubocop
+        git diff --name-only origin/main...HEAD | xargs bundle exec rubocop
 
     - name: Run RSpec
       run: |
