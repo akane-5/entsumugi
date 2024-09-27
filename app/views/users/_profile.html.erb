@@ -1,33 +1,20 @@
 <turbo-frame id="content">
   <div class="flex justify-center">
-    <div class="flex flex-col items-center bg-my_white p-8 rounded-lg shadow-lg w-2/5 mt-12">
-      <div class="avatar mb-6">
-        <div class="w-20 rounded-full">
-          <%= image_tag 'default_icon.png', alt: 'プロフィール画像' %>
+    <div class="flex flex-col items-center w-full max-w-lg bg-my_white p-8 rounded-lg shadow-lg mt-12">
+      <div class="form-control mb-2">
+        <label class="label pb-0"><span class="label-text">ユーザーネーム</span></label>
+        <div class="input input-bordered w-full px-2 py-1 h-9 border rounded">
+          <%= @user.name %>
         </div>
       </div>
-
-      <div class="w-full max-w-lg ">
-        <div class="form-control mb-2">
-          <label class="label pb-0"><span class="label-text">ユーザーネーム</span></label>
-          <div class="input input-bordered w-full px-2 py-1 h-9 border rounded">
-            <%= @user.name %>
-          </div>
+      <div class="form-control mb-2">
+        <label class="label pb-0"><span class="label-text">メールアドレス</span></label>
+        <div class="input input-bordered w-full px-2 py-1 h-9 border rounded">
+          <%= @user.email %>
         </div>
-        <div class="form-control mb-2">
-          <label class="label pb-0"><span class="label-text">メールアドレス</span></label>
-          <div class="input input-bordered w-full px-2 py-1 h-9 border rounded">
-            <%= @user.email %>
-          </div>
-        </div>
-        <div class="form-control mb-6">
-          <label class="label pb-0"><span class="label-text">プロフィール画像</span></label>
-          <div class="input input-bordered w-full px-2 py-1 h-9 border rounded">
-          </div>
-        </div>
-        <div class="form-control flex items-center">
-          <%= link_to '編集する', edit_user_registration_path, data: { turbo: false }, class: 'block bg-btn text-white py-2 px-4 rounded w-32 text-center hover:opacity-50' %>
-        </div>
+      </div>
+      <div class="form-control flex items-center mt-6">
+        <%= link_to '編集する', edit_user_registration_path, data: { turbo: false }, class: 'btn btn-sm bg-btn text-white w-32 rounded text-center' %>
       </div>
     </div>
   </div>

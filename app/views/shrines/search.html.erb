@@ -1,42 +1,49 @@
 <% breadcrumb :shrines_search %>
 
-<div class="bg-background pt-28 pb-12 px-6 h-screen">
-  <div class="flex space-x-5">
-    <!-- Sidebar for search options -->
-    <div class="w-1/4 p-4 rounded-lg shadow-lg bg-my_white">
-      <%= search_form_for @q, url: shrines_path, method: :get, data: { turbo: false } do |f| %>
-        <!-- 都道府県選択 -->
-        <div class="mb-4 pt-2">
-          <%= f.label :prefecture_id, '都道府県', class: 'block text-gray-700 font-bold mb-2 text-center' %>
-          <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, { include_blank: '選択する' }, class: 'block w-full  bg-white border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
-        </div>
+<div class="bg-background mt-16 pt-8 pb-12 px-6 h-screen">
 
-        <!-- タグ選択 -->
-        <div class="mb-4 pt-3">
-          <label class="block text-gray-700 font-bold mb-2 text-center">カテゴリ</label>
-          <div class="px-4">
-            <%= check_box_tag 'q[category_id_in][]', '1', params.dig(:q, :category_id_in)&.include?('1'), class: 'bg-blue' %> 総合運<br>
-            <%= check_box_tag 'q[category_id_in][]', '2', params.dig(:q, :category_id_in)&.include?('2'), class: 'bg-yellow' %> 金運<br>
-            <%= check_box_tag 'q[category_id_in][]', '3', params.dig(:q, :category_id_in)&.include?('3'), class: 'bg-pink' %> 恋愛運<br>
-            <%= check_box_tag 'q[category_id_in][]', '4', params.dig(:q, :category_id_in)&.include?('4'), class: 'bg-olive' %> 健康運<br>
-            <%= check_box_tag 'q[category_id_in][]', '5', params.dig(:q, :category_id_in)&.include?('5'), class: 'bg-purple' %> 仕事・学業運<br>
+  <details class="collapse w-full max-w-xl mx-auto text-center p-4 mt-6 rounded-lg">
+    <summary class="collapse-title text-xl font-medium">条件から検索する</summary>
+    <div class="collapse-content mt-4 w-full max-w-lg mx-auto">
+      <!-- 検索バー -->
+      <div class="p-4 rounded-lg shadow-lg bg-my_white mb-4 ">
+        <%= search_form_for @q, url: shrines_path, method: :get, data: { turbo: false } do |f| %>
+          <div class="mb-4 pt-2">
+            <%= f.label :prefecture_id, '都道府県', class: 'block text-gray-700 font-bold text-center' %>
+            <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, { include_blank: '選択する' }, class: 'block w-full bg-white border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
           </div>
-        </div>
 
-        <!-- フリーワード -->
-        <div class="mb-4 pt-3">
-          <%= f.label :name_cont, 'フリーワード', class: 'block text-gray-700 font-bold mb-2 text-center' %>
-          <%= f.text_field :name_cont, placeholder: '神社名など', class: 'block w-full bg-white border border-gray-300 rounded py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
-        </div>
+          <div class="mb-4 pt-3">
+            <label class="block text-gray-700 font-bold mb-2 text-center">カテゴリ</label>
+            <div class="px-4 flex flex-wrap">
+              <%= check_box_tag 'q[category_id_in][]', '1', params.dig(:q, :category_id_in)&.include?('1'), class: 'bg-blue' %> 総合運
+              <%= check_box_tag 'q[category_id_in][]', '2', params.dig(:q, :category_id_in)&.include?('2'), class: 'bg-yellow' %> 金運
+              <%= check_box_tag 'q[category_id_in][]', '3', params.dig(:q, :category_id_in)&.include?('3'), class: 'bg-pink' %> 恋愛運
+              <%= check_box_tag 'q[category_id_in][]', '4', params.dig(:q, :category_id_in)&.include?('4'), class: 'bg-olive' %> 健康運
+              <%= check_box_tag 'q[category_id_in][]', '5', params.dig(:q, :category_id_in)&.include?('5'), class: 'bg-purple' %> 仕事・学業運
+            </div>
+          </div>
 
-        <div class="actions pt-6">
-          <%= f.submit '検索', class: 'block w-full bg-btn text-white font-bold py-2 px-4 rounded cursor-pointer' %>
-        </div>
-      <% end %>
+          <div class="mb-4 pt-3">
+            <%= f.label :name_cont, 'フリーワード', class: 'block text-gray-700 font-bold text-center' %>
+            <%= f.text_field :name_cont, placeholder: '神社名など', class: 'block w-full bg-white border border-gray-300 rounded py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+          </div>
+
+          <div class="actions pt-6">
+            <%= f.submit '検索', class: 'btn btn-sm bg-btn text-white rounded text-center w-32' %>
+          </div>
+        <% end %>
+      </div>
     </div>
+  </details>
 
-    <!-- Map container -->
-    <div id="map" style="height: 500px; width: 100%;"> </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_JAVASCRIPT_API_KEY'] %>&callback=initMap" async defer ></script>
-  </div>
+  <details class="collapse w-full max-w-2xl text-center p-4 rounded-lg mt-2">
+    <summary class="collapse-title text-xl font-medium">地図から検索する</summary>
+    <div class="collapse-content mt-4">
+      <!-- Map container -->
+      <div id="map" style="height: 500px; width: 100%;"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_JAVASCRIPT_API_KEY'] %>&callback=initMap" async defer ></script>
+    </div>
+  </details>
+
 </div>

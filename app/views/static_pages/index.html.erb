@@ -1,44 +1,35 @@
 <% breadcrumb :root %>
 
-<div class="bg-background pt-20 relative">
-  <!-- 背景画像セクション -->
+<div class="bg-background mt-16">
   <div class="relative">
-    <img src="<%= asset_path 'main_image.jpeg' %>" alt="Main Image" class="w-full h-auto opacity-90">
-
-    <!-- コンテンツセクション -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center">
-      <div class="relative z-10 bg-white bg-opacity-80 p-6 rounded-lg shadow-lg w-2/3 max-w-md text-center">
-        <!-- ロゴの中央配置 -->
-        <div class="flex justify-center mb-6">
-          <img src="<%= asset_path 'logo_full.png' %>" alt="えんつむぎ" class="w-48 h-auto">
-        </div>
-        <!-- 神社を検索ボタン -->
-        <div class="flex justify-center">
-          <div class="bg-white bg-opacity-90 p-4 w-2/3 rounded-full shadow-lg">
-            <%= link_to "神社を検索", search_shrines_path, class: "bg-button text-white py-2 px-4 rounded-md w-full" %>
-            <p class="mt-6 text-gray-700">
-              地図、都道府県、ご利益別、<br>
-              フリーワードから検索できます
-            </p>
-          </div>
-        </div>
+    <!-- 背景画像 -->
+    <img src="<%= asset_path 'main_image.jpeg' %>" alt="Main Image" class="w-full max-h-72 opacity-90">
+    <!-- コンテンツ -->
+    <div class=" p-4 mt-6 bg-background text-center flex flex-col items-center">
+      <!-- ロゴの中央配置 -->
+      <div class="flex flex-col items-center p-4">
+        <img src="<%= asset_path 'logo_full.png' %>" alt="えんつむぎ" class="w-80">
+        <p class="text-lg pt-8 pb-12"> 神社と御朱印の情報検索サービスです</p>
       </div>
+
+    </div>
     </div>
   </div>
 </div>
-  <!-- サービスコンテンツ紹介セクション -->
-  <div class="relative mb-20 bg-cover bg-center py-16 pt-32">
-    <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('<%= asset_path 'pattern.jpg' %>');"></div>
 
-    <div class="relative z-10 container mx-auto px-6 text-center">
+
+  <!-- サービスコンテンツ紹介セクション -->
+  <div class="relative bg-background">
+
+    <div class="relative z-10 text-center p-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         <!-- タイトル -->
-        <div class="h-fit min-h-[196px] px-4 pb-4 md:order-2">
+        <div class="h-fit px-4">
           <h2 class="text-3xl font-medium mb-2 mt-8 font-serif">えんつむぎで<br>できること</h2>
           <img src="<%= asset_path 'icon_hato.png' %>" alt="タイトル" class="w-16 h-16 mx-auto">
         </div>
         <!-- コンテンツ1 -->
-        <div class="bg-white bg-opacity-70 h-fit px-4 pb-4 rounded-lg shadow-md md:order-1">
+        <div class="bg-white bg-opacity-70 h-fit px-4 pb-4 rounded-lg shadow-md">
           <img src="<%= asset_path 'icon_mushimegane.png' %>" alt="神社の検索" class="w-16 h-16 mx-auto">
           <h3 class="text-xl font-semibold mb-4">神社の検索</h3>
           <p class="text-gray-700">都道府県名、ご利益、地図、<br>フリーワードなど<br>様々な方法で神社が検索できます◎</p>
