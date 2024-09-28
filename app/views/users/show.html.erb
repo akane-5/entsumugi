@@ -1,8 +1,8 @@
 <% breadcrumb :users_show %>
 
-<div class="bg-background min-h-screen pt-28 pb-12 px-6">
+<div class="bg-background min-h-screen mt-16 pt-8 pb-12 px-6">
   <div class="">
-    <h1 class="text-2xl text-text mt-2 mb-8 text-center">マイページ</h1>
+    <h1 class="text-2xl mt-2 mb-8 text-center">マイページ</h1>
 
     <!-- メニューバー -->
     <div class="tabs tabs-bordered mb-6 max-w-4xl mx-auto space-x-6" id="menu-tabs">
@@ -14,7 +14,7 @@
     <!-- コンテンツ部分（Turbo Frameで囲む） -->
     <%= turbo_frame_tag "content" do %>
       <!-- 初期表示: 投稿一覧 -->
-      <%= render 'my_posts' %>
+      <%= render 'profile' %>
     <% end %>
   </div>
 </div>
