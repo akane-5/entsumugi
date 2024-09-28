@@ -30,11 +30,11 @@ function addMarkers(map,shrinesData) {
 
     const infoWindow = new google.maps.InfoWindow({
       content: `
-        <div class="p-4 max-w-s bg-background rounded-lg shadow-md flex flex-col items-center">
+        <div class="p-4 max-w-s rounded-lg shadow-md flex flex-col items-center">
           <h3 class="font-zenmaru text-lg mb-2 text-center">${shrine.name}</h3>
           <img src="${shrine.photo_url}" alt="${shrine.name}" class="w-36 h-28 object-cover mb-2">
           <br>
-          <a href="/shrines/${shrine.id}" class="font-zenmaru block py-2 px-4 w-32 h-8  bg-navy text-white text-center rounded hover:opacity-75">詳細</a>
+          <a href="/shrines/${shrine.id}" class="font-zenmaru block py-2 px-4 w-32 h-8 btn btn-sm bg-btn text-white text-center rounded">詳細</a>
         </div>
       `
     });

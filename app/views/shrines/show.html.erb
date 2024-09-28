@@ -1,6 +1,6 @@
 <% breadcrumb :shrines_show, @shrine %>
 
-<div class="bg-background min-h-screen pt-32 pb-12 px-6">
+<div class="bg-background min-h-screen mt-16 pt-20 pb-12 px-6">
   <div class="bg-my_white p-4 w-9/12 h-1/4 rounded-lg mx-auto shadow-md">
     <div class="flex items-center">
       <div class="w-2/5">
@@ -53,7 +53,7 @@
     <% if @no_results %>
       <div class="flex flex-col items-center justify-center mt-16">
         <p class=" text-xl">御朱印の写真がありません<i class="fa-regular fa-face-surprise style="color: #403b45;"></i></p>
-        <%= link_to '投稿する', new_post_path, class: 'bg-btn text-white py-2 px-4 mt-6 rounded' %>
+        <%= link_to '投稿する', new_post_path, class: 'btn btn-sm bg-btn text-white rounded w-32 text-center mt-6' %>
       </div>
     <% else %>
       <div class="flex flex-col items-center justify-center">

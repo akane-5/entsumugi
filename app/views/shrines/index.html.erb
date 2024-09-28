@@ -1,6 +1,6 @@
 <% breadcrumb :shrines_index %>
 
-<div class="bg-background pt-28 pb-12 px-6">
+<div class="bg-background mt-16 pt-8 pb-12 px-6 min-h-screen">
   <h1 class="text-3xl font-bold mb-4 text-center py-4">LIST</h1>
   <div class="flex flex-wrap justify-center">
     <% if @no_results %>
@@ -12,7 +12,7 @@
             <% image_url = shrine.formatted_photo_reference.presence || asset_path('sample.jpg') %>
             <img src="<%= image_url %>" alt="<%= shrine.name %>の写真" class="w-full h-56 object-cover">
           </figure>
-          <div class="card-body h-56">
+          <div class="card-body h-fit">
             <div class="card-title"><%= shrine.name %></div>
             <p><%= shrine.address %></p>
             <div class="flex">
@@ -29,7 +29,7 @@
               <% end %>
             </div>
             <div class="px-6 pt-4 pb-2 flex justify-center">
-              <%= link_to '詳細', shrine_path(shrine), class: 'bg-btn text-white font-bold py-1 px-8 rounded' %>
+              <%= link_to '詳細', shrine_path(shrine), class: 'btn btn-sm bg-btn text-white rounded w-32 text-center' %>
             </div>
           </div>
         </div>
