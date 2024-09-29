@@ -1,6 +1,6 @@
 <% breadcrumb :user_registration_new %>
 
-<div class="flex items-center justify-center h-screen bg-background mt-16 pt-8 pb-12 px-6 w-full">
+<div class="flex items-center justify-center h-screen bg-background pt-8 pb-12 px-6 w-full">
   <div class="w-full max-w-lg p-4 rounded-lg shadow-lg bg-my_white">
     <h2 class="text-lg font-bold my-6 text-center"><%= t('.title') %></h2>
 
@@ -32,16 +32,16 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border rounded-lg w-full h-9" %>
       </div>
 
-      <div class="form-control mt-8 mb-4 flex flex-col items-center">
+      <div class="form-control mt-8 mb-4 flex items-center">
         <%= f.submit t('.sign_up'), class: "btn btn-sm bg-btn text-white w-36"%>
       </div>
     <% end %>
 
     <p class="text-center">ー または ー</p>
 
-    <div class="form-control my-4 flex flex-col items-center">
-      <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false } do %>
-        <%= image_tag('google_icon_light_sq_SU@2x.png', class: 'w-full h-9') %>
+    <div class="form-control my-4 flex items-center">
+      <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false }, class: 'w-36' do %>
+        <%= image_tag('google_icon_light_sq_SU@2x.png') %>
       <% end %>
     </div>
 

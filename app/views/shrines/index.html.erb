@@ -1,6 +1,6 @@
 <% breadcrumb :shrines_index %>
 
-<div class="bg-background mt-16 pt-8 pb-12 px-6 min-h-screen">
+<div class="bg-background pt-8 pb-12 px-6 min-h-screen">
   <h1 class="text-3xl font-bold mb-4 text-center py-4">LIST</h1>
   <div class="flex flex-wrap justify-center">
     <% if @no_results %>
@@ -22,8 +22,8 @@
                   <%= "bg-yellow opacity-70" if shrine_category.category.name == '金運' %>
                   <%= "bg-pink opacity-70" if shrine_category.category.name == '恋愛運' %>
                   <%= "bg-olive opacity-70" if shrine_category.category.name == '健康運' %>
-                  <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %>
-                  text-black py-3">
+                  <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %> 
+                  py-3">
                   <%= shrine_category.category.name %>
                 </div>
               <% end %>

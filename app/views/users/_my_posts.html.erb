@@ -8,13 +8,13 @@
     <% else %>
       <div class="flex flex-wrap justify-center mt-6 ">
         <% @posts.each do |post| %>
-          <div class="card w-72 h-48 bg-my_white shadow-lg m-4">
-            <figure class="px-4 mt-2 bg-slate-500">
-              <%= image_tag post.image, alt: "御朱印の写真", class: "rounded-lg object-cover w-auto h-52" %>
+          <div class="card w-72 bg-my_white shadow-lg m-4">
+            <figure class="px-4 mt-2 h-56">
+              <img src="<%= post.image %>", alt: "御朱印の写真", class: "rounded-lg object-contain w-full h-full" %>
             </figure>
-            <div class="card-body px-6 pb-2 pt-2">
+            <div class="card-body px-6 pb-2 pt-2 h-fit">
               <%= link_to "#{post.shrine.name}", shrine_path(post.shrine), data: { turbo: false } , class: 'card-title hover:text-sky-300' %>
-              <p class="text-gray-700"><%= post.shrine.prefecture.name %></p>
+              <p><%= post.shrine.prefecture.name %></p>
               <div class="flex">
                 <% post.shrine.shrine_categories.each do |shrine_category| %>
                   <div class="badge 
@@ -22,15 +22,13 @@
                     <%= "bg-yellow opacity-70" if shrine_category.category.name == '金運' %>
                     <%= "bg-pink opacity-70" if shrine_category.category.name == '恋愛運' %>
                     <%= "bg-olive opacity-70" if shrine_category.category.name == '健康運' %>
-                    <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %>
-                    text-black py-3">
+                    <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %> 
+                    py-3">
                     <%= shrine_category.category.name %>
                   </div>
                 <% end %>
               </div>
-              <h2 class="card-title pt-2 text-wrap break-words">
-                <%= post.body %>
-              </h2>
+              <p class="pt-2 break-words"><%= post.body %></p>
               <p class="text-end"><%= post.created_at.strftime('%Y/%m/%d') %></p>
             </div>
           </div>

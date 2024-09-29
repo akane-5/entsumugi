@@ -1,8 +1,6 @@
-<div class="flex justify-center pt-10 pb-12 px-6 bg-background">
-  <div class="flex flex-col items-center bg-my_white mt-28 p-8 rounded-lg shadow-lg w-2/5 h-50">
-    <div class="mb-6">
-        <h2><%= t('.title', resource: devise_i18n_fix_model_name_case(resource.model_name.human, i18n_key: 'registrations.edit.title')) %></h2>
-    </div>
+<div class="flex justify-center bg-background pt-8 pb-12 px-6 w-full min-h-screen">
+  <div class="flex flex-col items-center bg-my_white p-4 rounded-lg shadow-lg w-full max-w-lg h-fit">
+    <h2 class="text-lg font-bold my-6 text-center"><%= t('.title', resource: devise_i18n_fix_model_name_case(resource.model_name.human, i18n_key: 'registrations.edit.title')) %></h2>
 
     <div class="w-full max-w-lg ">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -22,8 +20,8 @@
           <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
         <% end %>
 
-        <div class="form-control flex items-center mt-7">
-          <%= f.submit t('.update'), class: 'bg-btn text-white py-2 px-4 rounded w-32 text-center' %>
+        <div class="form-control flex items-center mt-12">
+          <%= f.submit t('.update'), class: "btn btn-sm bg-btn text-white w-36" %>
         </div>
       <% end %>
 
@@ -36,7 +34,7 @@
 =end %>
 
       <div class="form-control flex items-center mt-4">
-        <%= link_to t('devise.shared.links.back'), :back %>
+        <%= link_to t('devise.shared.links.back'), :back, class: "hover:text-sky-400" %>
       </div>
     </div>
   </div>

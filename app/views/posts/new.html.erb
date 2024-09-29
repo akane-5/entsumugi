@@ -1,7 +1,9 @@
 <% breadcrumb :posts_new %>
 
-<div class="flex flex-col items-center justify-center pt-20 pb-12 px-6 bg-background">
-  <div class="flex flex-col pt-8 w-2/5">
+<div class="bg-background min-h-screen pt-8 pb-12 px-6 flex flex-col items-center justify-center">
+<%
+=begin %>
+  <div class="flex flex-col pt-8 w-full max-w-lg">
     <button class="text-sky-600 text-sm hover:text-sky-400 text-end" onclick="my_modal_3.showModal()">神社の登録がない場合はこちら</button>
     <dialog id="my_modal_3" class="modal">
       <div class="modal-box w-72 h-50">
@@ -13,9 +15,10 @@
       </div>
     </dialog>
   </div>
+<%
+=end %>
 
-
-  <div class="flex flex-col items-center bg-my_white mt-2 p-8 rounded-lg shadow-lg w-2/5">
+  <div class="flex flex-col items-center bg-my_white mt-2 p-8 rounded-lg shadow-lg w-full max-w-lg">
     <div class="mb-6 text-lg font-bold">
         <h2>新規投稿</h2>
     </div>
@@ -29,7 +32,7 @@
           <div class="flex justify-between items-center">
             <%= f.label :shrine_name, '神社名', for: "shrine_name" %>
           </div>
-          <%= f.text_field :shrine_name, id: 'shrine_name', class: "w-full px-2 py-1 h-9 border rounded text-sm", placeholder: '神社名を入力すると住所とカテゴリが表示されます' %>
+          <%= f.text_field :shrine_name, id: 'shrine_name', class: "w-full px-2 py-1 h-9 border rounded text-sm", placeholder: '入力すると住所とカテゴリが表示されます' %>
         </div>
 
         <div class="form-control mb-5">
@@ -46,7 +49,7 @@
 
         <div class="form-control mb-5">
           <%= f.label :image, "御朱印の写真" %>
-          <%= f.file_field :image, class: "file-input file-input-bordered file:border-0 file:bg-my_white text-sm text-gray-700 w-full h-9" %>
+          <%= f.file_field :image, class: "file-input file-input-bordered file:border-0 file:bg-my_white file:text-xs text-sm w-full h-9" %>
         </div>
 
         <div class="form-control mb-5">
