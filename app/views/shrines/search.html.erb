@@ -1,6 +1,6 @@
 <% breadcrumb :shrines_search %>
 
-<div class="bg-background mt-16 pt-8 pb-12 px-6 h-screen">
+<div class="bg-background pt-8 pb-12 px-6 min-h-screen">
 
   <details class="collapse w-full max-w-xl mx-auto text-center p-4 mt-6 rounded-lg">
     <summary class="collapse-title text-xl font-medium">条件から検索する</summary>
@@ -15,12 +15,27 @@
 
           <div class="mb-4 pt-3">
             <label class="block text-gray-700 font-bold mb-2 text-center">カテゴリ</label>
-            <div class="px-4 flex flex-wrap">
-              <%= check_box_tag 'q[category_id_in][]', '1', params.dig(:q, :category_id_in)&.include?('1') %> 総合運
-              <%= check_box_tag 'q[category_id_in][]', '2', params.dig(:q, :category_id_in)&.include?('2') %> 金運
-              <%= check_box_tag 'q[category_id_in][]', '3', params.dig(:q, :category_id_in)&.include?('3') %> 恋愛運
-              <%= check_box_tag 'q[category_id_in][]', '4', params.dig(:q, :category_id_in)&.include?('4') %> 健康運
-              <%= check_box_tag 'q[category_id_in][]', '5', params.dig(:q, :category_id_in)&.include?('5') %> 仕事・学業運
+            <div class="px-4 flex flex-wrap justify-center space-x-4 ">
+              <div class="flex items-center">
+                <%= check_box_tag 'q[category_id_in][]', '1', params.dig(:q, :category_id_in)&.include?('1'), id: 'category_1' %>
+                <label for="category_1">総合運</label>
+              </div>
+              <div class="flex items-center">
+                <%= check_box_tag 'q[category_id_in][]', '2', params.dig(:q, :category_id_in)&.include?('2'), id: 'category_2' %>
+                <label for="category_2">金運</label>
+              </div>
+              <div class="flex items-center">
+                <%= check_box_tag 'q[category_id_in][]', '3', params.dig(:q, :category_id_in)&.include?('3'), id: 'category_3' %>
+                <label for="category_3">恋愛運</label>
+              </div>
+              <div class="flex items-center">
+                <%= check_box_tag 'q[category_id_in][]', '4', params.dig(:q, :category_id_in)&.include?('4'), id: 'category_4' %>
+                <label for="category_4">健康運</label>
+              </div>
+              <div class="flex items-center">
+                <%= check_box_tag 'q[category_id_in][]', '5', params.dig(:q, :category_id_in)&.include?('5'), id: 'category_5' %>
+                <label for="category_5">仕事・学業運</label>
+              </div>
             </div>
           </div>
 
@@ -37,7 +52,7 @@
     </div>
   </details>
 
-  <details class="collapse w-full max-w-2xl text-center p-4 rounded-lg mt-2">
+  <details class="collapse w-full mx-auto text-center p-4 mt-2 rounded-lg">
     <summary class="collapse-title text-xl font-medium">地図から検索する</summary>
     <div class="collapse-content mt-4">
       <!-- Map container -->

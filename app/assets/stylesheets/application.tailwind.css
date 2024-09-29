@@ -4,11 +4,6 @@
 @import "daisyui";
 
 /* カスタムスタイルの追加 */
-html, body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
 
 .breadcrumb {
   background-color: #FFFDF4;
@@ -21,21 +16,11 @@ html, body {
   @apply hover:text-zinc-400;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .absolute {
   position: absolute;
 }
 
-.bg-button {
-  background-color: #BCA446;
-}
-
-.flash_notice {
+.flash_success {
   background-color: #E3ECEF;
   color: #253A91;
   text-align: center;
@@ -47,7 +32,7 @@ img {
   text-align: center;
   font: bold;
 }
-.flash_success {
+.flash_notice {
   background-color: #E4EEE4;
   color: #505829;
   text-align: center;

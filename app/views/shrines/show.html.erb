@@ -1,6 +1,69 @@
 <% breadcrumb :shrines_show, @shrine %>
 
-<div class="bg-background min-h-screen mt-16 pt-20 pb-12 px-6">
+<div class="bg-background min-h-screen pt-20 pb-12 px-6">
+
+  <div class="card md:card-side bg-my_white shadow-md rounded-lg">
+    <figure>
+      <% if @shrine.photo_reference.present? %>
+        <img src="<%= @shrine.formatted_photo_reference %>" alt="<%= @shrine.name %>" class="w-full h-52">
+      <% else %>
+        <div class="bg-gray-300 text-white p-4 rounded-lg">PHOTO</div>
+      <% end %>
+    </figure>
+    <div class="card-body">
+      <div class="flex items-center justify-between">
+        <h2 class="card-title"><%= @shrine.name %></h2>
+
+        <% if user_signed_in? %>
+          <div class="w-10">
+            <%= turbo_frame_tag dom_id(@shrine, :bookmark), class: "ml-4" do %>
+              <% if current_user.bookmarked_shrines.exists?(@shrine.id) %>
+                <%= link_to shrine_bookmark_path(@shrine), method: :delete, data: { turbo_method: :delete } do %>
+                  <i class="fa-solid fa-bookmark"></i>
+                <% end %>
+              <% else %>
+                <%= link_to shrine_bookmark_path(@shrine), method: :post, data: { turbo_method: :post } do %>
+                  <i class="fa-regular fa-bookmark"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <p><%= @shrine.address %></p>
+
+      <div class="flex mt-6">
+        <% @categories.each do |shrine_category| %>
+          <div class="badge 
+            <%= "bg-blue opacity-70" if shrine_category.category.name == '総合運' %>
+            <%= "bg-yellow opacity-70" if shrine_category.category.name == '金運' %>
+            <%= "bg-pink opacity-70" if shrine_category.category.name == '恋愛運' %>
+            <%= "bg-olive opacity-70" if shrine_category.category.name == '健康運' %>
+            <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %>
+          text-black py-3">
+            <%= shrine_category.category.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="bg-my_white p-4 w-9/12 h-1/4 rounded-lg mx-auto shadow-md">
     <div class="flex items-center">
       <div class="w-2/5">

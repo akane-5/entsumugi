@@ -5,20 +5,18 @@
     <% else %>
       <div class="flex flex-wrap justify-center mt-6">
         <% @bookmarks.each do |bookmark| %>
-          <div class="card bg-my_white w-72 h-48 shadow-lg m-4">
-            <figure class="pt-6 px-6">
+          <div class="card bg-my_white w-80 shadow-lg m-4">
+            <figure>
               <% if bookmark.shrine.photo_reference.present? %>
-                <img src="<%= bookmark.shrine.formatted_photo_reference %>" alt="<%= bookmark.shrine.name %>" class="w-72 h-48 object-cover rounded-lg">
+                <img src="<%= bookmark.shrine.formatted_photo_reference %>" alt="<%= bookmark.shrine.name %>" class="w-full h-56 object-cover">
               <% else %>
                 <div class="bg-gray-300 text-white p-4 rounded-lg">PHOTO</div>
               <% end %>
             </figure>
 
-            <div class="card-body px-6 pb-2 pt-2">
-              <div class="card-title flex items-center justify-between mt-2">
-                <div class="card-title text-blue">
-                  <%= link_to "#{bookmark.shrine.name}", shrine_path(bookmark.shrine), data: { turbo: false } %>
-                </div>
+            <div class="card-body h-fit">
+              <div class="flex items-center justify-between mt-2">
+                <%= link_to "#{bookmark.shrine.name}", shrine_path(bookmark.shrine), data: { turbo: false }, class: 'card-title hover:text-sky-300' %>
                 <div class="w-10">
                   <%= turbo_frame_tag dom_id(bookmark.shrine, :bookmark), class: "ml-4" do %>
                     <% if current_user.bookmarked_shrines.exists?(bookmark.shrine.id) %>
@@ -34,7 +32,7 @@
                 </div>
               </div>
 
-              <p class="text-gray-700 mt-2 mb-2"><%= bookmark.shrine.prefecture.name %></p>
+              <p class="mt-2 mb-2"><%= bookmark.shrine.prefecture.name %></p>
               <div class="flex mb-4">
                 <% bookmark.shrine.shrine_categories.each do |shrine_category| %>
                   <div class="badge 
@@ -42,8 +40,8 @@
                     <%= "bg-yellow opacity-70" if shrine_category.category.name == '金運' %>
                     <%= "bg-pink opacity-70" if shrine_category.category.name == '恋愛運' %>
                     <%= "bg-olive opacity-70" if shrine_category.category.name == '健康運' %>
-                    <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %>
-                    text-black py-3">
+                    <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %> 
+                    py-3">
                     <%= shrine_category.category.name %>
                   </div>
                 <% end %>
