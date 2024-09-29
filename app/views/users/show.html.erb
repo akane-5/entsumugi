@@ -6,14 +6,14 @@
 
     <!-- メニューバー -->
     <div class="tabs tabs-bordered mb-6 max-w-4xl mx-auto space-x-6" id="menu-tabs">
-      <%= link_to "プロフィール", profile_users_path, data: { turbo_frame: "content" }, class: "tab hover:tab-active", id: "tab-profile" %>
-      <%= link_to "投稿一覧", my_posts_users_path, data: { turbo_frame: "content" }, class: "tab hover:tab-active tab-active", id: "tab-posts" %>
+      <%= link_to "プロフィール", profile_users_path, data: { turbo_frame: "content" }, class: "tab hover:tab-active tab-active", id: "tab-profile" %>
+      <%= link_to "投稿一覧", my_posts_users_path, data: { turbo_frame: "content" }, class: "tab hover:tab-active", id: "tab-posts" %>
       <%= link_to "ブックマーク", bookmarks_users_path, data: { turbo_frame: "content" }, class: "tab hover:tab-active", id: "tab-bookmarks" %>
     </div>
 
     <!-- コンテンツ部分（Turbo Frameで囲む） -->
     <%= turbo_frame_tag "content" do %>
-      <!-- 初期表示: 投稿一覧 -->
+      <!-- 初期表示: プロフィール -->
       <%= render 'profile' %>
     <% end %>
   </div>
