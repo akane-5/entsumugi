@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbo:load', () => {
   const shrineInput = document.getElementById('shrine_name');
   const shrineIdField = document.getElementById('shrine_id'); // hidden field for shrine_id
   const addressField = document.getElementById('address'); // 住所のinputフィールド

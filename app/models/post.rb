@@ -7,4 +7,5 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :shrine_id, presence: true
   validates :image, presence: true
+  validates :body, length: { maximum: 50 }
 end
