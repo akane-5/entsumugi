@@ -61,14 +61,21 @@
         <div class="flex flex-wrap justify-center mt-6">
           <% @posts.each do |post| %>
             <div class="card w-72 h-fit bg-my_white shadow-lg m-4">
-              <figure class="px-4 mt-2 bg-slate-200">
+              <figure class="px-4 mt-2 h-56">
                 <%= image_tag post.image, alt: "御朱印の写真", class: "rounded-lg w-72 h-56 object-contain" %>
               </figure>
               <div class="card-body px-6 pb-4 pt-2">
                 <p class="pt-2 break-words text-sm min-h-9"><%= post.body %></p>
                 <div class="flex items-end pt-4">
                   <p><%= post.user.name %></p>
-                  <p class="text-end"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+                  <div class="flex space-x-4">
+                    <p class="text-end"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+                    <% if user_signed_in? && post.user == current_user %>
+                      <%= button_to post_path(post), method: :delete, data: { confirm: "投稿を削除してもよろしいですか？", turbo: false } do %>
+                        <i class="fa-solid fa-trash"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>

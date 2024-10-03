@@ -12,11 +12,18 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] = '投稿が成功しました！'
-      redirect_to users_path
+      redirect_to shrine_path(@post.shrine)
     else
       flash[:alert] = "投稿できませんでした"
       render :new
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    flash[:notice] = '投稿を削除しました'
+    redirect_to shrine_path(post.shrine)
   end
 
   private

@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   get '/privacy_policy', to: 'static_pages#privacy_policy'
   get '/terms_of_service', to: 'static_pages#terms_of_service'
 
-  resources :shrines, only: %i[index show] do
+  resources :shrines, only: %i[index show create] do
     collection do
       get 'search', to: 'shrines#search'
       get 'search_json', to: 'shrines#search_json'
       get 'shrine_search', to: 'shrines#shrine_search'
+      post 'api_request', to: 'shrines#api_request'
     end
     resource :bookmark, only: %i[create destroy]
   end
@@ -29,5 +30,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts
+  resources :posts, only: %i[new create destroy]
 end

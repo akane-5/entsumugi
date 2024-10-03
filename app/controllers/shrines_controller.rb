@@ -1,12 +1,12 @@
 class ShrinesController < ApplicationController
+  # フォームからの検索
   def search
-    # フォームからの検索
     @q = Shrine.ransack(params[:q])
     @shrines = @q.result(distinct: true)
   end
 
+  # マップからの検索
   def search_json
-    # マップからの検索
     @shrines_data = Shrine.all.map do |shrine|
       {
         id: shrine.id,
@@ -23,8 +23,8 @@ class ShrinesController < ApplicationController
   def index
     @q = Shrine.ransack(params[:q])
 
+    # タグが選択されている場合は、選択されたカテゴリに該当する神社を絞り込む
     if params[:q][:category_id_in].present?
-      # タグが選択されている場合は、選択されたカテゴリに該当する神社を絞り込む
       @shrines = @q.result
         .includes(shrine_categories: :category)
         .joins(:shrine_categories) # shrine_categoriesテーブルと結合
@@ -53,5 +53,46 @@ class ShrinesController < ApplicationController
     else
       render json: {}
     end
+  end
+
+  # 神社登録フォームから神社情報取得のためのAPIリクエスト
+  def api_request
+    prefecture_id = params[:prefecture_id]
+    shrine_name = params[:name]
+
+    # 環境変数からAPIキーを取得
+    api_key = ENV.fetch('PLACES_API_KEY')
+
+    # APIリクエストを送信（例: RestClientやNet::HTTPを使う）
+    response = RestClient.post(
+      "https://api.example.com/shrines/search",
+      {
+        prefecture_id: prefecture_id,
+        name: shrine_name
+      },
+      { Authorization: "Bearer #{api_key}", content_type: :json }
+    )
+
+    # レスポンスをJSON形式で返す
+    render json: JSON.parse(response.body)
+  rescue StandardError => e
+    render json: { error: e.message }, status: :internal_server_error
+  end
+
+  # 神社登録フォームからDBに保存
+  def create
+    @shrine = Shrine.new(shrine_params)
+
+    if @shrine.save
+      render json: { success: true }
+    else
+      render json: { success: false, errors: @shrine.errors }, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def shrine_params
+    params.require(:shrine).permit(:name, :prefecture_id, :address, :latitude, :longitude, :place_id, :photo_reference, :website, category_ids: [])
   end
 end
