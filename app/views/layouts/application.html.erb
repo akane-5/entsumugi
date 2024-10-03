@@ -19,9 +19,13 @@
     <meta property="og:description" content="神社と御朱印の情報共有サービスです" />
     <meta property="og:image" content="<%= image_url('ogp2.png') %>" />
     <meta property="og:url" content="https://www.en-tsumugi.com/" />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@akane_wots" />
+
+    <!-- Google Analytics(本番環境のみ) -->
+    <% if Rails.env.production? %>
+      <%= render 'layouts/google_analytics' %>
+    <% end %>
   </head>
 
   <body class="font-zenmaru">
