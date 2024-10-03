@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     flash[:notice] = '投稿を削除しました'
-      redirect_to shrine_path(post.shrine)
+    redirect_to shrine_path(post.shrine)
   end
 
   private

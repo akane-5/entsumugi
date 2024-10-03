@@ -22,7 +22,6 @@ Rails.application.routes.draw do
     resource :bookmark, only: %i[create destroy]
   end
 
-
   resource :users, only: [:show] do
     collection do
       get 'profile', to: 'users#profile'
