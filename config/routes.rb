@@ -30,5 +30,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: %i[new create destroy]
+  resources :posts, only: %i[index new create destroy]
 end

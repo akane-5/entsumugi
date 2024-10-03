@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
+  def index
+    @posts = Post.includes(:user, :shrine).order(created_at: :desc)
+    @posts = @posts.page(params[:page]).per(9)
+  end
+
   def new
     @post = Post.new
     @shrines = Shrine.all # 神社データを取得する
@@ -12,7 +17,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] = '投稿が成功しました！'
-      redirect_to shrine_path(@post.shrine)
+      redirect_to posts_path
     else
       flash[:alert] = "投稿できませんでした"
       render :new
@@ -23,7 +28,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     flash[:notice] = '投稿を削除しました'
-    redirect_to shrine_path(post.shrine)
+    redirect_to request.referer || users_path
   end
 
   private
