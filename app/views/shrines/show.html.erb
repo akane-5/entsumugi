@@ -51,12 +51,12 @@
   <div>
     <% if @no_results %>
       <div class="flex flex-col items-center justify-center mt-16">
-        <p class=" text-xl">御朱印の写真がありません<i class="fa-regular fa-face-surprise style="color: #403b45;"></i></p>
+        <p class=" text-xl">御朱印の投稿がありません<i class="fa-regular fa-face-surprise style="color: #403b45;"></i></p>
         <%= link_to '投稿する', new_post_path, class: 'btn btn-sm bg-btn text-white rounded w-32 text-center mt-6' %>
       </div>
     <% else %>
       <div class="flex flex-col items-center justify-center">
-        <p class="text-xl mt-16">みんなの投稿<i class="fa-regular fa-face-smile" style="color: #403b45;"></i></p>
+        <p class="text-xl mt-16">投稿一覧<i class="fa-regular fa-face-smile" style="color: #403b45;"></i></p>
 
         <div class="flex flex-wrap justify-center mt-6">
           <% @posts.each do |post| %>
