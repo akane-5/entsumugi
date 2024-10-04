@@ -20,10 +20,11 @@
               <li><%= link_to 'プライバシーポリシー',  privacy_policy_path %></li>
               <hr class="my-2 h-0.5 border-t-0 bg-neutral-100" />
               <li class="share-button-container w-10">
-                <%= link_to "https://twitter.com/share?url=#{CGI.escape('https://www.en-tsumugi.com/')}&text=#{CGI.escape('神社と御朱印の情報共有サービス')}&hashtags=えんつむぎ", target: "_blank", rel: "noopener noreferrer" do %>
+                <%= link_to "https://twitter.com/share?url=#{CGI.escape('https://www.en-tsumugi.com/')}&text=#{CGI.escape('神社と御朱印の情報共有サービス')}&hashtags=えんつむぎ", target: "_blank", rel: "noopener noreferrer", title: "Xでシェアする" do %>
                   <i class="fa-brands fa-x-twitter fa-lg py-2 px-2" style="color: #5f5434;"></i>
                 <% end %>
               </li>
+              <p class="text-center pt-2">©︎ 2024 - えんつむぎ</p>
             </ul>
           </details>
         </li>
