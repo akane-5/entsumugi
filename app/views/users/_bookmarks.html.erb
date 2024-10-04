@@ -1,7 +1,7 @@
 <turbo-frame id="content">
-  <div class="container mx-auto mt-12">
+  <div class="container mx-auto mt-12 text-black">
     <% if @no_results %>
-      <div class="text-red-500 text-lg text-center mt-24">ブックマークしている神社はありません</div>
+      <div class="text-lg text-center mt-24">ブックマークしている神社はありません<i class="fa-regular fa-face-surprise style="color: #403b45;"></i></div>
     <% else %>
       <div class="flex flex-wrap justify-center mt-6">
         <% @bookmarks.each do |bookmark| %>
@@ -18,13 +18,13 @@
               <div class="flex items-center justify-between mt-2">
                 <%= link_to "#{bookmark.shrine.name}", shrine_path(bookmark.shrine), data: { turbo: false }, class: 'card-title hover:text-sky-300' %>
                 <div class="w-10">
-                  <%= turbo_frame_tag dom_id(bookmark.shrine, :bookmark), class: "ml-4" do %>
+                  <%= turbo_frame_tag dom_id(bookmark.shrine, :bookmark) do %>
                     <% if current_user.bookmarked_shrines.exists?(bookmark.shrine.id) %>
-                      <%= link_to shrine_bookmark_path(bookmark.shrine), method: :delete, data: { turbo_method: :delete }, class: "text-red-500" do %>
+                      <%= link_to shrine_bookmark_path(bookmark.shrine), method: :delete, data: { turbo_method: :delete } do %>
                         <i class="fa-solid fa-bookmark"></i>
                       <% end %>
                     <% else %>
-                      <%= link_to shrine_bookmark_path(bookmark.shrine), method: :post, data: { turbo_method: :post }, class: "text-gray-500" do %>
+                      <%= link_to shrine_bookmark_path(bookmark.shrine), method: :post, data: { turbo_method: :post } do %>
                         <i class="fa-regular fa-bookmark"></i>
                       <% end %>
                     <% end %>
@@ -41,7 +41,7 @@
                     <%= "bg-pink opacity-70" if shrine_category.category.name == '恋愛運' %>
                     <%= "bg-olive opacity-70" if shrine_category.category.name == '健康運' %>
                     <%= "bg-purple opacity-70" if shrine_category.category.name == '仕事・学業運' %> 
-                    py-3">
+                    text-black py-3">
                     <%= shrine_category.category.name %>
                   </div>
                 <% end %>
