@@ -15,8 +15,8 @@
         <h2 class="card-title"><%= @shrine.name %></h2>
 
         <% if user_signed_in? %>
-          <div class="w-10">
-            <%= turbo_frame_tag dom_id(@shrine, :bookmark), class: "ml-4" do %>
+          <div class="w-8">
+            <%= turbo_frame_tag dom_id(@shrine, :bookmark) do %>
               <% if current_user.bookmarked_shrines.exists?(@shrine.id) %>
                 <%= link_to shrine_bookmark_path(@shrine), method: :delete, data: { turbo_method: :delete } do %>
                   <i class="fa-solid fa-bookmark"></i>
