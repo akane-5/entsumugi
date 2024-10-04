@@ -1,0 +1,6 @@
+<%= turbo_stream.replace dom_id(@shrine, :bookmark), class: "ml-4" do %>
+  <%# ブックマークが削除された状態のリンク %>
+  <%= link_to shrine_bookmark_path(@shrine), method: :post, data: { turbo_method: :post } do %>
+    <i class="fa-regular fa-bookmark"></i>
+  <% end %>
+<% end %>
