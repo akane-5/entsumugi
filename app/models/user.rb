@@ -27,4 +27,14 @@ class User < ApplicationRecord
   def self.create_unique_string
     SecureRandom.uuid
   end
+
+  # ユーザーの投稿を神社情報、カテゴリ情報を含めて降順で取得
+  def my_posts_list
+    posts.includes(shrine: :shrine_categories).order(created_at: :desc)
+  end
+
+  # ユーザーがブックマークした神社を取得
+  def bookmarked_shrines_list
+    bookmarks.includes(:shrine)
+  end
 end
