@@ -11,8 +11,8 @@ class Shrine < ApplicationRecord
   validates :latitude, presence: true
   validates :longitude, presence: true
   validates :place_id, presence: true, uniqueness: true
-  validates :photo_reference, presence: true, allow_blank: true
-  validates :website, presence: true, allow_blank: true
+  validates :photo_reference, allow_blank: true
+  validates :website, allow_blank: true
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[prefecture_id name]
