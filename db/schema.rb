@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_06_151617) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_28_190946) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_06_151617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_shrine_categories_on_category_id"
+    t.index ["shrine_id", "category_id"], name: "index_shrine_categories_on_shrine_id_and_category_id", unique: true
     t.index ["shrine_id"], name: "index_shrine_categories_on_shrine_id"
   end
 
@@ -107,8 +108,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_06_151617) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider", default: "devise"
-    t.string "uid", default: "devise_user"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true

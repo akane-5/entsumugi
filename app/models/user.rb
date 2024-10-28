@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validates :password, presence: true, length: { minimum: 6 }, on: :create # 新規登録時
+  validates :password, length: { minimum: 6 }, allow_nil: true, on: :update # パスワード更新時に入力された場合のみ
   validates :uid, presence: true, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
   # omniauth_callbacks_controllerで使用
@@ -30,11 +31,11 @@ class User < ApplicationRecord
 
   # ユーザーの投稿を神社情報、カテゴリ情報を含めて降順で取得
   def my_posts_list
-    posts.includes(shrine: :shrine_categories).order(created_at: :desc)
+    posts.includes(shrine: :categories).order(created_at: :desc)
   end
 
   # ユーザーがブックマークした神社を取得
   def bookmarked_shrines_list
-    bookmarks.includes(:shrine)
+    bookmarks.includes(shrine: :categories)
   end
 end
