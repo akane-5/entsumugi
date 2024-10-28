@@ -22,6 +22,17 @@ class Shrine < ApplicationRecord
     %w[shrine_categories categories]
   end
 
+  # 新規投稿フォームに入力された神社名を元に、神社情報とカテゴリ情報を探す(postsコントローラーで呼び出されるメソッド)
+  def self.find_shrine_for_post(name)
+    shrine = find_by(name: name)
+    if shrine
+      categories = shrine.categories.pluck(:name) # カテゴリ名を配列で取得
+      { id: shrine.id, address: shrine.address, categories: categories }
+    else
+      {}
+    end
+  end
+
   # photo_referenceからURLを取得するメソッド
   def formatted_photo_reference
     # JSON形式からURLを取り出す

@@ -96,3 +96,7 @@ Style/FrozenStringLiteralComment:
 # マイグレーションファイルにおけるbulk: trueオプションのチェック(1つのテーブルに対する処理をまとめて書こうというもの)
 Rails/BulkChangeTable:
   Enabled: false
+
+# ハッシュの記法(値が省略できるとき)のチェックを無効
+Style/HashSyntax:
+  Enabled: false

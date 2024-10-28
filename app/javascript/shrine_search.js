@@ -8,7 +8,7 @@ document.addEventListener('turbo:load', () => {
     shrineInput.addEventListener('input', function () {
       const shrineName = this.value;
 
-      fetch(`/shrines/shrine_search?name=${encodeURIComponent(shrineName)}`, {
+      fetch(`/posts/shrine_search?name=${encodeURIComponent(shrineName)}`, {
         headers: {
           'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
         }
