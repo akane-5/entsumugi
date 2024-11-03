@@ -1,8 +1,16 @@
 FactoryBot.define do
   factory :post do
-    user #userのファクトリを関連付け
-    shrine #shrineのファクトリを関連付け
+    association :user #userのファクトリを関連付け
+    association :shrine #shrineのファクトリを関連付け
     body { Faker::Lorem.paragraph }
-    image { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test_image.png'), 'image/png') } #テスト用ファイル
+
+    # テスト用画像ファイルを自動で添付
+    after(:build) do |post|
+      post.image.attach(
+        io: Rails.root.join('spec/fixtures/files/test_image.png').open,
+        filename: 'test_image.png',
+        content_type: 'image/png'
+      )
+    end
   end
 end

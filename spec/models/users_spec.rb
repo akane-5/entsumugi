@@ -64,4 +64,36 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'アソシエーションのテスト' do
+    it '1人のユーザーが複数の投稿を持つことができる(has_many :posts)' do
+      post1 = FactoryBot.create(:post, user: @user)
+      post2 = FactoryBot.create(:post, user: @user)
+      expect(@user.posts).to include(post1, post2)
+    end
+
+    it 'ユーザーが削除されると関連する投稿も削除される(dependent: :destroy)' do
+      post = FactoryBot.create(:post, user: @user)
+      expect { @user.destroy }.to change { Post.count }.by(-1)
+    end
+
+    it '1人のユーザーが複数のブックマークを持つことができる(has_many :bookmarks)' do
+      bookmark1 = FactoryBot.create(:bookmark, user: @user)
+      bookmark2 = FactoryBot.create(:bookmark, user: @user)
+      expect(@user.bookmarks).to include(bookmark1, bookmark2)
+    end
+
+    it 'ブックマークを通じて複数の神社情報を持てる(has_many :bookmarked_shrines, through: :bookmarks, source: :shrine)' do
+      shrine1 = FactoryBot.create(:shrine)
+      shrine2 = FactoryBot.create(:shrine)
+      bookmark1 = FactoryBot.create(:bookmark, user: @user, shrine: shrine1)
+      bookmark2 = FactoryBot.create(:bookmark, user: @user, shrine: shrine2)
+      expect(@user.bookmarked_shrines).to include(shrine1, shrine2)
+    end
+
+    it 'ユーザーが削除されると関連するブックマークも削除される(dependent: :destroy)' do
+      bookmark = FactoryBot.create(:bookmark, user: @user)
+      expect { @user.destroy }.to change { Bookmark.count }.by(-1)
+    end
+  end
 end
