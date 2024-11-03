@@ -44,3 +44,5 @@
 local_data_import.dump
 
 local_db.dump
+
+.rubocop_todo.yml
