@@ -34,4 +34,14 @@ RSpec.describe Bookmark, type: :model do
       end
     end
   end
+
+  describe 'アソシエーションのテスト' do
+    it 'ユーザーに属している' do
+      expect(@bookmark.user).to eq(@user)
+    end
+
+    it '神社に属している' do
+      expect(@bookmark.shrine).to eq(@shrine)
+    end
+  end
 end

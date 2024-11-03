@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   has_one_attached :image
 
-  validates :image, attached: true
+  validates :image, presence: true
   validates :body, length: { maximum: 50 }
 
   # すべてのユーザーの投稿を、ユーザー情報、神社情報を含めて降順で取得
